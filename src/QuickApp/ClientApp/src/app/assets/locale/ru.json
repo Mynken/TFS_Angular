@@ -1,0 +1,137 @@
+﻿{
+    "app": {
+        "Welcome": "Добро пожаловать",
+        "New": "Новый"
+    },
+    "mainMenu": {
+        "About": "О",
+        "Logout": "Выйти"
+    },
+    "pageHeader": {
+        "Dashboard": "Панель приборов",
+        "NotFound": "Не найдено",
+        "About": "О",
+        "Settings": "Настройки"
+    },
+    "notFound": {
+        "404": "404",
+        "pageNotFound": "Страница, которую вы ищете, не существует",
+        "backToHome": "Вернуться на главную"
+    },
+    "settings": {
+        "tab": {
+            "Profile": "Профиль",
+            "Preferences": "Предпочтения",
+            "Users": "Пользователи",
+            "Roles": "Роли"
+        },
+        "header": {
+            "UserProfile": "Пользовательский профиль",
+            "UserPreferences": "Пользовательские настройки",
+            "UserDepartments": "Пользовательские отделы",
+            "UsersManagements": "Пользовательское управление",
+            "RolesManagement": "Управление ролями"
+        }
+    },
+    "preferences": {
+        "ReloadPreferences": "Обновить настройки:",
+        "ReloadPreferencesHint": "Загружать настройки по умолчанию (локальные изменения отбрасываются)",
+        "Language": "Язык:",
+        "English": "Английский",
+        "Ukrainian": "Украинский",
+        "Russian": "Русский",
+        "Poland": "Польский",
+        "LanguageHint": "Выберите язык для своей учетной записи",
+        "HomePage": "Главная:",
+        "About": "О",
+        "Settings": "Настройки",
+        "HomePageHint": "Выберите начальную страницу, чтобы войти",
+        "Theme": "тема:",
+        "DefaultColor": "<span class='default-theme-option'>По умолчанию</span>",
+        "RedColor": "<span class='red-theme-option'>Красная</span>",
+        "OrangeColor": "<span class='orange-theme-option'>Оранжевая</span>",
+        "GreenColor": "<span class='green-theme-option'>Зеленая</span>",
+        "GrayColor": "<span class='gray-theme-option'>Серая</span>",
+        "BlackColor": "<span class='black-theme-option'>Черная</span>",
+        "ThemeHint": "Выберите тему для своей учетной записи",
+        "ResetDefault": "Сбросить настройки по умолчанию",
+        "SetDefault": "Установить по умолчанию"
+    },
+    "users": {
+        "management": {
+            "Search": "Поиск пользователя...",
+            "NewUser": "Новый пользователь",
+            "Edit": "Редактировать",
+            "Delete": "Удалить",
+            "EditUser": "Редактировать пользователя \"{{name}}\"",
+            "Title": "Название",
+            "UserName": "Имя",
+            "FullName": "Фамилия",
+            "Email": "Email",
+            "Roles": "Роли",
+            "PhoneNumber": "Мобильный номер"
+        },
+        "editor": {
+            "JobTitle": "Название работы: ",
+            "UserName": "Имя:",
+            "UserNameRequired": "Требуется имя пользователя (минимум 2 и не более 200 символов)",
+            "Password": "Пароль:",
+            "PasswordHint": "Ваш пароль требуется при смене имени пользователя",
+            "CurrentPasswordRequired": "Требуется текущий пароль",
+            "Email": "Email:",
+            "EmailRequired": "Требуется Email адрес (не более 200 символов)",
+            "InvalidEmail": "Указанное электронное письмо недействительно",
+            "ChangePassword": "Изменить пароль",
+            "CurrentPassword": "Текущий пароль:",
+            "NewPassword": "Новый пароль:",
+            "NewPasswordRequired": "Требуется новый пароль (минимум 6 символов)",
+            "ConfirmPassword": "Подтвердите Пароль:",
+            "ConfirmationPasswordRequired": "Требуется подтверждение пароля",
+            "PasswordMismatch": "Новый пароль и пароль подтверждения не совпадают",
+            "Roles": "Роли:",
+            "FullName": " Фамилия:",
+            "RoleRequired": "Требуется роли",
+            "PhoneNumber": "Телефон #:",
+            "Enabled": "Включено",
+            "Unblock": "Открыто",
+            "Close": "Закрыто",
+            "Edit": "Редактировать",
+            "Cancel": "Отмена",
+            "Save": "Сохранить",
+            "Saving": "Сохранение..."
+        }
+    },
+    "roles": {
+        "management": {
+            "Search": "Поиск значения...",
+            "NewRole": "Новоые роли",
+            "Edit": "Редактировать",
+            "Details": "Подробнее",
+            "Delete": "Удалить",
+            "RoleDetails": "Сведения о ролях \"{{name}}\"",
+            "EditRole": "Редактировать роли \"{{name}}\"",
+            "Name": "Имя",
+            "Description": "Описание",
+            "Users": "Пользователи"
+        },
+        "editor": {
+            "Name": "Имя:",
+            "Description": "Описание:",
+            "RoleNameRequired": "Требуется имя роли (минимум 2 и максимум 200 символов)",
+            "SelectAll": "Выбрать все",
+            "SelectNone": "Убрать все",
+            "Close": "Закрыть",
+            "Cancel": "Отмена",
+            "Save": "Сохранить",
+            "Saving": "Сохранение..."
+        }
+    },
+    "buttons": {
+        "Close": "Закрыть",
+        "Edit": "Редактировать",
+        "Cancel": "Отмена",
+        "Save": "Сохранить",
+        "Back": "Назад",
+        "Generate": "Сгенерировать"
+    }
+}

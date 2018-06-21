@@ -1,0 +1,137 @@
+﻿{
+    "app": {
+        "Welcome": "Witaj,",
+        "New": "Nowy"
+    },
+    "mainMenu": {
+        "About": "O nas",
+        "Logout": "Wyloguj"
+    },
+    "pageHeader": {
+        "Dashboard": "Pulpit nawigacyjny",
+        "NotFound": "Nie znaleziono",
+        "About": "O",
+        "Settings": "Ustawienia"
+    },
+    "notFound": {
+        "404": "404",
+        "pageNotFound": "Strona, której szukasz, nie istnieje",
+        "backToHome": "Powrót do domu"
+    },
+    "settings": {
+        "tab": {
+            "Profile": "Profil",
+            "Preferences": "Preferencje",
+            "Users": "Użytkownicy",
+            "Roles": "Role"
+        },
+        "header": {
+            "UserProfile": "Profil Użytkownika",
+            "UserPreferences": "Preferencje Użytkownika",
+            "UserDepartments": "Działy użytkownika",
+            "UsersManagements": "Zarządzanie użytkownikami",
+            "RolesManagement": "Zarządzanie rolami"
+        }
+    },
+    "preferences": {
+        "ReloadPreferences": "Przeładuj preferencje:",
+        "ReloadPreferencesHint": "Załaduj domyślne ustawienia (lokalne zmiany są odrzucane)",
+        "Language": "Język:",
+        "English": "Angelski",
+        "Ukrainian": "Ukrainski",
+        "Russian": "Rosyjski",
+        "Poland": "Polski",
+        "LanguageHint": "Wybierz preferowany język dla swojego konta",
+        "HomePage": "Strona główna:",
+        "About": "O",
+        "Settings": "Ustawienia",
+        "HomePageHint": "Wybierz domyślną stronę do nawigacji po zalogowaniu",
+        "Theme": "Kolor domyślny:",
+        "DefaultColor": "<span class='default-theme-option'>Domyślny kolor</span>",
+        "RedColor": "<span class='red-theme-option'>Czerwony</span>",
+        "OrangeColor": "<span class='orange-theme-option'>Pomarańczowy</span>",
+        "GreenColor": "<span class='green-theme-option'>Zielony</span>",
+        "GrayColor": "<span class='gray-theme-option'>Szary</span>",
+        "BlackColor": "<span class='black-theme-option'>Czarny</span>",
+        "ThemeHint": "Wybierz domyślną kolorystykę swojego konta",
+        "ResetDefault": "Zresetuj domyślne",
+        "SetDefault": "Ustaw jako domyślne"
+    },
+    "users": {
+        "management": {
+            "Search": "Wyszukaj użytkownika...",
+            "NewUser": "Nowy użytkownik",
+            "Edit": "Edytować",
+            "Delete": "Usunąć",
+            "EditUser": "Edytuj użytkownika \"{{name}}\"",
+            "Title": "Tytuł",
+            "UserName": "Nazwa Użytkownika",
+            "FullName": "Pełne imię i nazwisko",
+            "Email": "Email",
+            "Roles": "Role",
+            "PhoneNumber": "Numer telefonu"
+        },
+        "editor": {
+            "JobTitle": "Stanowisko: ",
+            "UserName": "Nazwa Użytkownika:",
+            "UserNameRequired": "Wymagana jest nazwa użytkownika (minimum 2 i maksymalnie 200 znaków)",
+            "Password": "Hasło:",
+            "PasswordHint": "Twoje hasło jest wymagane przy zmianie nazwy użytkownika",
+            "CurrentPasswordRequired": "Wymagane jest aktualne hasło",
+            "Email": "Email:",
+            "EmailRequired": "Wymagany jest adres e-mail (maksymalnie 200 znaków)",
+            "InvalidEmail": "Określony adres e-mail jest nieprawidłowy",
+            "ChangePassword": "Zmień hasło",
+            "CurrentPassword": "Aktualne hasło:",
+            "NewPassword": "Nowe hasło:",
+            "NewPasswordRequired": "Wymagane nowe hasło (minimum 6 znaków)",
+            "ConfirmPassword": "Potwierdź hasło:",
+            "ConfirmationPasswordRequired": "Wymagane jest hasło potwierdzające",
+            "PasswordMismatch": "Nowe hasło i hasło potwierdzające nie pasują",
+            "Roles": "Role:",
+            "FullName": " Pełne imię i nazwisko:",
+            "RoleRequired": " Rola jest wymagana",
+            "PhoneNumber": "Telefon #:",
+            "Enabled": "Włączone",
+            "Unblock": "Odblokować",
+            "Close": "Zamknąć",
+            "Edit": "Edytować",
+            "Cancel": "Anuluj",
+            "Save": "Zapisać",
+            "Saving": "Zapisuję..."
+        }
+    },
+    "roles": {
+        "management": {
+            "Search": "Wyszukaj rolę...",
+            "NewRole": "Nowa rola",
+            "Edit": "Edytować",
+            "Details": "Szczegóły",
+            "Delete": "Usunąć",
+            "RoleDetails": "Szczegóły roli \"{{name}}\"",
+            "EditRole": "Edytuj rolę \"{{name}}\"",
+            "Name": "Nazwa",
+            "Description": "Opis",
+            "Users": "Użytkownicy"
+        },
+        "editor": {
+            "Name": "Nazwa:",
+            "Description": "Opis:",
+            "RoleNameRequired": "Wymagana jest nazwa roli (minimum 2 i maksymalnie 200 znaków)",
+            "SelectAll": "Zaznacz wszystko",
+            "SelectNone": "Wybierz żaden",
+            "Close": "Zamknąć",
+            "Cancel": "Anuluj",
+            "Save": "Zapisać",
+            "Saving": "Zapisuję..."
+        }
+    },
+    "buttons": {
+        "Close": "Zamknąć",
+        "Edit": "Edytować",
+        "Cancel": "Anuluj",
+        "Save": "Zapisać",
+        "Back": "Powrót",
+        "Generate": "Generować"
+    }
+}

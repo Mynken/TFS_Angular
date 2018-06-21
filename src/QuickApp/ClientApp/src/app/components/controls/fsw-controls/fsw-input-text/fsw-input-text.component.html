@@ -1,0 +1,14 @@
+<input pInputText
+                type="text"
+                (ngModelChange) = "sendNotification($event)"
+                [(ngModel)]="model"
+                [pKeyFilter]="pKeyFilter"
+                [(ngModel)]="model"
+                placeholder={{placeholder}}
+                id={{id}}
+                size={{size}}
+                pTooltip={{pTooltip}}
+                tooltipEvent={{tooltipEvent}}
+                tooltipPosition={{tooltipPosition}}
+                [style]="style"
+                [ngClass]="(validClass && validClass === undefined) ? 'input-error': ''">

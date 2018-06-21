@@ -1,0 +1,32 @@
+<div [@fadeInOut]>
+    <p-panel header="Clients" >
+            <a routerLink="/clients/create">
+                <fsw-button label="Add new client" severityLevel="success"></fsw-button>
+            </a>
+            <div class="search-panel">
+                    <input type="search" pInputText placeholder="Search..." (keyup)="dv.filterGlobal($event.target.value, 'contains')">
+            </div>
+    <p-table #dv [value]="clients" [paginator]="true" [rows]="10" [columns]="columnsForsearch" [style]="{'text-align':'center'}">
+            <ng-template pTemplate="header">
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Company</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-client>
+                    <tr>
+                        <td>{{client.fullName}}</td>
+                        <td>{{client.company}}</td>
+                        <td>{{client.phone}}</td>
+                        <td>{{client.email}}</td>
+                        <td>
+                        <button type="button" class="btn btn-primary" (click)="edit(client.id)">Edit</button>
+                        <button type="button" class="btn btn-danger" (click)="delete(client.id)">Delete</button></td>
+                    </tr>
+                </ng-template>
+        </p-table>
+    </p-panel>
+</div>
+<router-outlet></router-outlet>

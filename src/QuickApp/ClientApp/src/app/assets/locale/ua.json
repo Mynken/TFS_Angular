@@ -1,0 +1,137 @@
+﻿{
+    "app": {
+        "Welcome": "Kаскаво просимо",
+        "New": "Новий"
+    },
+    "mainMenu": {
+        "About": "О",
+        "Logout": "Вийти"
+    },
+    "pageHeader": {
+        "Dashboard": "Панель приладів",
+        "NotFound": "Не знайдено",
+        "About": "О",
+        "Settings": "Налаштування"
+    },
+    "notFound": {
+        "404": "404",
+        "pageNotFound": "Сторінка, яку ви шукаєте, не існує",
+        "backToHome": "Повернутися на головну"
+    },
+    "settings": {
+        "tab": {
+            "Profile": "профіль",
+            "Preferences": "Переваги",
+            "Users": "Користувачі",
+            "Roles": "Роль"
+        },
+        "header": {
+            "UserProfile": "Профіль користувача",
+            "UserPreferences": "Налаштування користувача",
+            "UserDepartments": "Відділи користувача",
+            "UsersManagements": "Управління користувача",
+            "RolesManagement": "Управління ролями"
+        }
+    },
+    "preferences": {
+        "ReloadPreferences": "Оновити налаштування:",
+        "ReloadPreferencesHint": "Завантажувати налаштування за замовчуванням (локальні зміни відкидаються)",
+        "Language": "Мова:",
+        "English": "Англійська",
+        "Ukrainian": "Українська",
+        "Russian": "Російський",
+        "Poland": "Польский",
+        "LanguageHint": "Виберіть мову для свого профілю",
+        "HomePage": "Головна:",
+        "About": "О",
+        "Settings": "Налаштування",
+        "HomePageHint": "Виберіть початкову сторінку, щоб увійти",
+        "Theme": "Тема:",
+        "DefaultColor": "<span class='default-theme-option'>За замовчуванням</span>",
+        "RedColor": "<span class='red-theme-option'>Червона</span>",
+        "OrangeColor": "<span class='orange-theme-option'>Помаранчева</span>",
+        "GreenColor": "<span class='green-theme-option'>Зелена</span>",
+        "GrayColor": "<span class='gray-theme-option'>Сіра</span>",
+        "BlackColor": "<span class='black-theme-option'>Чорна</span>",
+        "ThemeHint": "Виберіть тему для свого профілю",
+        "ResetDefault": "Скинути налаштування за замовчуванням",
+        "SetDefault": "Встановити за замовчуванням"
+    },
+    "users": {
+        "management": {
+            "Search": "Пошук користувача...",
+            "NewUser": "Новий користувач",
+            "Edit": "Редагувати",
+            "Delete": "Видалити",
+            "EditUser": "Редагувати користувача \"{{name}}\"",
+            "Title": "Назва",
+            "UserName": "Ім'я",
+            "FullName": "Прізвище",
+            "Email": "Email",
+            "Roles": "Ролі",
+            "PhoneNumber": "Мобільний номер"
+        },
+        "editor": {
+            "JobTitle": "Назва работи: ",
+            "UserName": "Імʼя:",
+            "UserNameRequired": "Потрібно ім'я користувача (мінімум 2 і не більше 200 символів)",
+            "Password": "Пароль:",
+            "PasswordHint": "Ваш пароль потрібен при зміні імені користувача",
+            "CurrentPasswordRequired": "Потрібен поточний пароль",
+            "Email": "Email:",
+            "EmailRequired": "Потрібна Email адреса (не більше 200 символів)",
+            "InvalidEmail": "Зазначена електронна адреса недійсна",
+            "ChangePassword": "Змінити пароль",
+            "CurrentPassword": "Поточний пароль:",
+            "NewPassword": "Новий пароль:",
+            "NewPasswordRequired": "Потрібен новий пароль (минимум 6 символов)",
+            "ConfirmPassword": "Підтвердіть пароль:",
+            "ConfirmationPasswordRequired": "Необхідно підтвердити пароль",
+            "PasswordMismatch": "Новий пароль і пароль підтвердження не збігаються",
+            "Roles": "Ролі:",
+            "FullName": " Прізвище:",
+            "RoleRequired": "Необхідна роль",
+            "PhoneNumber": "Телефон #:",
+            "Enabled": "Вімкнено",
+            "Unblock": "Відкрито",
+            "Close": "Закрито",
+            "Edit": "Редагувати",
+            "Cancel": "Відмінити",
+            "Save": "Зберегти",
+            "Saving": "Збереження..."
+        }
+    },
+    "roles": {
+        "management": {
+            "Search": "Пошук значення...",
+            "NewRole": "Нове значення",
+            "Edit": "Редагувати",
+            "Details": "Детальніше",
+            "Delete": "Видалити",
+            "RoleDetails": "Відомості про роль \"{{name}}\"",
+            "EditRole": "Редагувати роль \"{{name}}\"",
+            "Name": "Імʼя",
+            "Description": "Опис",
+            "Users": "Користувачі"
+        },
+        "editor": {
+            "Name": "Імʼя:",
+            "Description": "Опис:",
+            "RoleNameRequired": "Необхідне імʼя ролі (мінімум 2 і не більше 200 символів)",
+            "SelectAll": "Вибрати все",
+            "SelectNone": "Прибрати все",
+            "Close": "Закрити",
+            "Cancel": "Відміна",
+            "Save": "Зберегти",
+            "Saving": "Збереження..."
+        }
+    },
+    "buttons": {
+            "Close": "Закрити",
+            "Edit": "Редагувати",
+            "Cancel": "Відміна",
+            "Save": "Зберегти",
+            "Back": "Назад",
+            "Generate": "Сгенерувати"
+        }
+}

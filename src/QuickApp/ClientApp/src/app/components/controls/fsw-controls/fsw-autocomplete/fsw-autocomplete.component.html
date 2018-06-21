@@ -1,0 +1,13 @@
+<p-autoComplete
+        [(ngModel)]="model"
+        [suggestions]="suggestedValues"
+        (completeMethod)="search($event)"
+        (onSelect)="onAutocompleteSelect($event)"
+        (onClear)="onClear()"
+        (onFocus)="onFocus()"
+        [dropdown]="dropdown"
+        [size]="30"
+        placeholder={{placeholder}}
+        emptyMessage={{emptyMessage}}
+        size={{size}}
+        [minLength]="1"></p-autoComplete>

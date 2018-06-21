@@ -1,0 +1,41 @@
+.ui-button.ui-button-success.ui-state-default:hover {
+    background-color: #4cae4c;
+    border-color: #5cb85c;
+    color: #fff;
+}
+
+.ui-button.ui-button-danger:enabled:hover,
+.ui-button.ui-button-danger:focus,
+.ui-splitbutton.ui-button-danger .ui-button:enabled:hover,
+.ui-splitbutton.ui-button-danger .ui-button:focus{
+    background-color: #d43f3a;
+    border-color: #d9534f;
+}
+
+.ui-button.ui-button-warning:enabled:hover,
+.ui-button.ui-button-warning:focus,
+.ui-splitbutton.ui-button-warning
+.ui-button:enabled:hover,
+.ui-splitbutton.ui-button-warning .ui-button:focus {
+    background-color: #eea236;
+    border-color: #f0ad4e;
+}
+
+.ui-button.ui-button-info:enabled:hover,
+.ui-button.ui-button-info:focus,
+.ui-splitbutton.ui-button-info
+.ui-button:enabled:hover, .ui-splitbutton.ui-button-info .ui-button:focus {
+    background-color: #46b8da;
+    border-color: #5bc0de;
+}
+
+.ui-button.ui-button-secondary:enabled:hover,
+.ui-button.ui-button-secondary:focus,
+.ui-splitbutton.ui-button-secondary
+.ui-button:enabled:hover,
+.ui-splitbutton.ui-button-secondary
+.ui-button:focus {
+    background-color: #f2f2f2;
+    border-color: #ccc;
+    color: #373a3c;
+}
