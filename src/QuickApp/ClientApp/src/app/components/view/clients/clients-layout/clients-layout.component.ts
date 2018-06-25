@@ -27,12 +27,12 @@ export class ClientsLayoutComponent implements OnInit {
             { field: 'phone', header: 'phone' },
             { field: 'email', header: 'email' }
         ];
-        // this.clientService.getClientsList()
-        //     .subscribe( data => { this.clients = data; } );
+        this.clientService.getClientsList()
+            .subscribe( data => { this.clients = data; } );
     }
 
     edit(id: number): void {
-        this.router.navigate(['/client/edit/', id]);
+        this.router.navigate(['/client-edit/', id]);
     }
 
     delete(id: number): void {

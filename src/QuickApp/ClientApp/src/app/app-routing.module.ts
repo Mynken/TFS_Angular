@@ -17,10 +17,9 @@ import { ClientEditComponent } from './components/view/clients/client-edit/clien
             { path: '', component: HomeComponent, canActivate: [AuthGuard], data: { title: 'Home' } },
             { path: 'login', component: LoginComponent, data: { title: 'Login' } },
             { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard], data: { title: 'Settings' } },
-            { path: 'clients', component: ClientsLayoutComponent, canActivate: [AuthGuard], data: { title: 'Clients'}, children: [
-                {path: 'create', component: ClientCreateComponent, canActivate: [AuthGuard], data: { title: 'Create Client'}},
-                {path: 'edit/:id', component: ClientEditComponent, canActivate: [AuthGuard], data: { title: 'Edit Client'}},
-            ] },
+            { path: 'clients', component: ClientsLayoutComponent, canActivate: [AuthGuard], data: { title: 'Clients'} },
+            { path: 'client-create', component: ClientCreateComponent, canActivate: [AuthGuard], data: { title: 'Clients create'}  },
+            { path: 'client-edit/:id', component: ClientEditComponent, canActivate: [AuthGuard], data: { title: 'Clients create'}  },
             // { path: 'car-edit/:id', component: CarEditComponent, canActivate: [AuthGuard], data: { title: 'EditCar' } },
             { path: 'home', redirectTo: '/', pathMatch: 'full' },
             { path: '**', component: NotFoundComponent, data: { title: 'Page Not Found' } },

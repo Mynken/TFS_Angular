@@ -1,4 +1,3 @@
-import { Validation } from './../../../../models/enums';
 import { Component, OnInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AlertService, MessageSeverity, DialogType } from '../../../../services/alert.service';
@@ -7,7 +6,8 @@ import { Client, IClient } from '../../../../models/client';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ClientService } from '../../../../services/client.service';
-import { FormGroup, FormBuilder, FormControl, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { inputRangeValidator, emailValidator } from '../../../../directives/validation/validators';
 
 @Component({
   selector: 'client-create',
@@ -21,14 +21,14 @@ export class ClientCreateComponent implements OnInit {
     public client: IClient = new Client();
 
     constructor(private alertService: AlertService,
-                  private router: Router,
-                  private clientService: ClientService,
-                  private _location: Location,
-                  private spinner: NgxSpinnerService,
-                  private fb: FormBuilder) { }
+                private router: Router,
+                private clientService: ClientService,
+                private _location: Location,
+                private spinner: NgxSpinnerService,
+                private fb: FormBuilder) {}
 
     ngOnInit(): void {
-        // this.validation();
+
         this.createForm();
     }
 
@@ -37,55 +37,31 @@ export class ClientCreateComponent implements OnInit {
     }
 
     onSubmit(): void {
-        console.log('d');
-        // for (let i = 0; i < this.viewService.length; i++) {
-        //     if (this.viewService[i].valid === undefined || this.viewService[i].valid === false) {
-        //         console.log(this.viewService);
-        //         break;
-        //     }
-        // }
-
-        // if (this.createKontrahentForm['status'] === 'VALID') {
-            // this.spinner.show();
-            // this.client.startCooperationDate = new Date();
-            // this.clientService.createClient(this.client).subscribe((data) => {
-            //     this.alertService.showMessage('Success!', `Client has been successfully created`, MessageSeverity.success);
-            //     setTimeout(() => {
-            //         this.spinner.hide();
-            //     }, 2000);
-            //     this.router.navigateByUrl('/clients');
-            // },
-            //     error => {
-            //         console.log(error);
-            //         this.alertService.showMessage('An error has occurred!', error, MessageSeverity.error);
-            //     });
-        // } else {
-        //     this.validation();
-        //     this.alertService.showMessage('Попередження!', `Будь-ласка, заповніть всі поля`, MessageSeverity.warn);
-        // }
-
+        if (this.clientForm.valid) {
+            this.spinner.show();
+            this.client.startCooperationDate = new Date();
+            this.clientService.createClient(this.client).subscribe(() => {
+                this.alertService.showMessage('Success!', `Client has been successfully created`, MessageSeverity.success);
+                setTimeout(() => {
+                    this.spinner.hide();
+                }, 2000);
+                this.router.navigateByUrl('/clients');
+            },
+                error => {
+                    console.log(error);
+                    this.alertService.showMessage('An error has occurred!', error, MessageSeverity.error);
+                });
+        } else {
+            this.alertService.showMessage('Warning!', `Please fill in all fields`, MessageSeverity.warn);
+        }
     }
 
     private createForm(): any {
         this.clientForm = this.fb.group({
-            fullName: [null, Validators.compose([Validators.required, Validators.minLength(2)])],
-            company: new FormControl ('', [Validators.required, this.userNameValidator()]),
-            email: new FormControl ('', [Validators.required, this.userNameValidator()]),
-            phone: new FormControl ('', [Validators.required, this.userNameValidator()]),
+            fullName: new FormControl ('', [Validators.required]),
+            company: new FormControl ('', [Validators.required, inputRangeValidator()]),
+            email: new FormControl ('', [Validators.required, emailValidator()]),
+            phone: new FormControl ('', [Validators.required])
         });
-      }
-
-    getNotification(event: any): void {
-    }
-
-    private userNameValidator(): ValidatorFn {
-        const pattern: RegExp = /^[\w\.\$@\*\!]{5,30}$/;
-        return (control: AbstractControl): { [key: string]: any } => {
-            if (!(control.dirty || control.touched)) {
-                return null;
-            } else {
-                return pattern.test(control.value) ? null : {custom: `error`};
-            }
-        };
     }
 }

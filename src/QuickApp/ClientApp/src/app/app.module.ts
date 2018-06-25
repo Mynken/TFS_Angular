@@ -57,7 +57,7 @@ import { ClientEditComponent } from './components/view/clients/client-edit/clien
 import { ClientService } from './services/client.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { CommonModule } from '@angular/common';
-import { CustomInputComponent } from './components/controls/fsw-controls/custom-input/custom-input.component';
+import { FSWCustomInputComponent } from './components/controls/fsw-controls/fsw-custom-input/fsw-custom-input.component';
 import { InputRefDirective } from './directives/validation/input-ref.directive';
 
 @NgModule({
@@ -109,7 +109,7 @@ import { InputRefDirective } from './directives/validation/input-ref.directive';
         ClientsLayoutComponent,
         ClientCreateComponent,
         ClientEditComponent,
-        CustomInputComponent,
+        FSWCustomInputComponent,
         InputRefDirective
     ],
     providers: [

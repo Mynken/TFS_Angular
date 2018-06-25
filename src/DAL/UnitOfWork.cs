@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL.Repositories;
 using DAL.Repositories.Interfaces;
+using FSW_TFS.DAL.Repositories;
+using FSW_TFS.DAL.Repositories.Interfaces;
 
 namespace DAL
 {
@@ -12,7 +14,7 @@ namespace DAL
     {
         readonly ApplicationDbContext _context;
 
-        //ICarRepository _cars;
+        IClientRepository _clients;
 
 
 
@@ -21,16 +23,16 @@ namespace DAL
             _context = context;
         }
 
-        //public ICarRepository Cars
-        //{
-        //    get
-        //    {
-        //        if (_cars == null)
-        //            _cars = new CarsRepository(_context);
+        public IClientRepository Clients
+        {
+            get
+            {
+                if (_clients == null)
+                    _clients = new ClientRepository(_context);
 
-        //        return _cars;
-        //    }
-        //}
+                return _clients;
+            }
+        }
 
         public int SaveChanges()
         {

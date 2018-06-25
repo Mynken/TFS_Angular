@@ -2,11 +2,11 @@ import { Component, OnInit, Input, ContentChild } from '@angular/core';
 import { InputRefDirective } from '../../../../directives/validation/input-ref.directive';
 
 @Component({
-    selector: 'custom-input',
-    templateUrl: './custom-input.component.html',
-    styleUrls: ['./custom-input.component.css']
+    selector: 'fsw-custom-input',
+    templateUrl: './fsw-custom-input.component.html',
+    styleUrls: ['./fsw-custom-input.component.css']
 })
-export class CustomInputComponent implements OnInit {
+export class FSWCustomInputComponent implements OnInit {
     @Input() label: string;
     @Input() validations: { [index: string]: string };
     @Input() info: string;

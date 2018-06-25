@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, forwardRef, Optional, Host, SkipSelf } from '@angular/core';
-import { NG_VALIDATORS, AbstractControl, ControlContainer, FormGroup, FormControl } from '@angular/forms';
+import { NG_VALIDATORS, AbstractControl, ControlContainer, FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Validation } from '../../../../models/enums';
 
 @Component({
@@ -8,9 +8,6 @@ import { Validation } from '../../../../models/enums';
   styleUrls: ['./fsw-input-text.component.css']
 })
 export class FswInputTextComponent implements OnInit {
-
-    public validClass: boolean;
-    public viewService: { name: string, valid: boolean };
 
     @Input() pKeyFilter = 'alphanum';
     @Input() placeholder: string;
@@ -22,17 +19,6 @@ export class FswInputTextComponent implements OnInit {
     @Input() tooltipEvent: string;
     @Input() style: string;
     @Input() tooltipPosition = 'right';
-    @Input() validationInfo: string;
-    @Input() validationParams: any;
-
-    @Input()
-    get validation(): any {
-      return this.valid;
-    }
-    set validation(val: any) {
-      this.valid = val;
-      this.notifyParent.emit(val);
-    }
 
     @Input()
     get model(): any {
@@ -47,35 +33,9 @@ export class FswInputTextComponent implements OnInit {
     modelChange: EventEmitter<any> = new EventEmitter<any>();
     protected modelValue: any;
 
-    @Output() notifyParent: EventEmitter<any> = new EventEmitter();
-    protected valid: any;
-    sendNotification(): void {
-        console.log(this.validationParams);
-        this.validClass = true;
-        this.viewService = {name: this.options, valid: true};
-        this.notifyParent.emit(this.viewService);
-    }
-
   constructor() { }
 
   ngOnInit(): void {
-      this.validClass = undefined;
-      console.log(this.validClass);
   }
 
-//   validClass(): boolean {
-//       return true;
-//   }
 }
-
-
-// visible: () => true,
-// editable: () => true,
-
-
-// required: () => false,
-// hasError: () => false,
-// Required = 2000,
-// MinLength = 2001,
-// MaxLength = 2002,
-// Custom = 2003

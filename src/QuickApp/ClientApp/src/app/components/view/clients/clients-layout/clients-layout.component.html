@@ -1,6 +1,6 @@
 <div [@fadeInOut]>
     <p-panel header="Clients" >
-            <a routerLink="/clients/create">
+            <a routerLink="/client-create">
                 <fsw-button label="Add new client" severityLevel="success"></fsw-button>
             </a>
             <div class="search-panel">
@@ -13,6 +13,7 @@
                         <th>Company</th>
                         <th>Phone</th>
                         <th>Email</th>
+                        <th>Manage</th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-client>
@@ -22,8 +23,8 @@
                         <td>{{client.phone}}</td>
                         <td>{{client.email}}</td>
                         <td>
-                        <button type="button" class="btn btn-primary" (click)="edit(client.id)">Edit</button>
-                        <button type="button" class="btn btn-danger" (click)="delete(client.id)">Delete</button></td>
+                        <fsw-button label="{{'button.Edit' | translate}}" (click)="edit(client.id)" severityLevel="primary"></fsw-button>
+                        <fsw-button label="{{'button.Delete' | translate}}" (click)="delete(client.id)" severityLevel="danger"></fsw-button>
                     </tr>
                 </ng-template>
         </p-table>

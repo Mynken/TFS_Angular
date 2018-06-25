@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 
 import { AlertService, MessageSeverity } from '../../../../services/alert.service';
-import { AccountService } from "../../../../services/account.service";
+import { AccountService } from '../../../../services/account.service';
 import { Utilities } from '../../../../services/utilities';
 import { User } from '../../../../models/user.model';
 import { UserEdit } from '../../../../models/user-edit.model';

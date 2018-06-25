@@ -1,7 +1,6 @@
 <ngx-spinner bdColor="rgba(159,202,249,0.8)" size="large" color="#2341f0" type="ball-clip-rotate-multiple"></ngx-spinner>
 <h1>Create client</h1>
 <p-panel>
-<p-tabView>
         <div [@fadeInOut] class="container" >
             <form (ngSubmit)="onSubmit(clientForm.value)" [formGroup]="clientForm">
                 <p-panel header="Client Information" >
@@ -10,11 +9,11 @@
                             <tr>
                                 <td>
                                     <div class="row">
-                                        <label class="col-sm-3 control-label">Full Name</label>
+                                        <label class="col-sm-3 control-label">{{'client.FullName' | translate}}</label>
                                         <div class="input-group col-lg-4">
-                                            <custom-input [validations]="{required:'First Name required', 'minlength':'Minimum of 2 characters'}">
-                                                <input inputRef class="form-control" [(ngModel)]="client.company" formControlName="fullName" type="text" />
-                                              </custom-input>
+                                            <fsw-custom-input [validations]="{required:'error.Required' | translate}">
+                                                <input pInputText pKeyFilter="alphanum" inputRef class="form-control" [(ngModel)]="client.fullName" formControlName="fullName" type="text" />
+                                              </fsw-custom-input>
                                         </div>
                                     </div>
                                 </td>
@@ -24,9 +23,9 @@
                                     <div class="row">
                                         <label class="col-sm-3 control-label">Company</label>
                                         <div class="input-group col-lg-4">
-                                            <custom-input [validations]="{required:'Last Name required', 'custom':'Min lezxcxzcn: 5, blabla bla'}">
-                                                <input inputRef class="form-control" [(ngModel)]="client.phone" formControlName="company" type="text" />
-                                              </custom-input>
+                                            <fsw-custom-input [validations]="{'required': ('error.Required' | translate) + ',', 'custom':'error.CustomUsual' | translate}">
+                                                <input inputRef class="form-control" [(ngModel)]="client.company" formControlName="company" type="text" />
+                                              </fsw-custom-input>
                                         </div>
                                     </div>
                                 </td>
@@ -36,9 +35,9 @@
                                     <div class="row">
                                         <label class="col-sm-3 control-label">Email</label>
                                         <div class="input-group col-lg-4">
-                                            <custom-input [validations]="{required:'Last Name required', 'custom':'Min lezxcxzcn: 5, blabla bla'}">
-                                                    <input inputRef class="form-control" [(ngModel)]="client.phone" formControlName="email" type="text" />
-                                            </custom-input>
+                                            <fsw-custom-input [validations]="{required: ('error.Required' | translate) + ',', 'custom':'error.CustomUsual' | translate}">
+                                                    <input inputRef class="form-control" [(ngModel)]="client.email" formControlName="email" type="text" />
+                                            </fsw-custom-input>
                                         </div>
                                     </div>
                                 </td>
@@ -46,11 +45,11 @@
                             <tr>
                                 <td>
                                     <div class="row">
-                                        <label class="col-sm-3 control-label">phone</label>
+                                        <label class="col-sm-3 control-label">Phone</label>
                                         <div class="input-group col-lg-4">
-                                            <custom-input [validations]="{required:'Last Name required', 'custom':'Min lezxcxzcn: 5, blabla bla'}">
-                                                    <input inputRef class="form-control" [(ngModel)]="client.phone" formControlName="phone" type="text" />
-                                            </custom-input>
+                                            <fsw-custom-input [validations]="{required:'error.Required' | translate}">
+                                                    <input pKeyFilter="num" inputRef class="form-control" [(ngModel)]="client.phone" formControlName="phone" type="text" />
+                                            </fsw-custom-input>
                                         </div>
                                     </div>
                                 </td>
@@ -60,28 +59,15 @@
                 </p-panel>
             </form>
         </div>
-
     <div class="col-md-10">
         <div class="save-create-kontrahent-ie">
-            <fsw-button label="Save" (click)="clientForm.valid ? onSubmit() : ''" [disabled]="!clientForm.valid" severityLevel="success" class="enter" ></fsw-button>
-            <a routerLink="/kontrahents/ie">
-                <fsw-button label="Back"></fsw-button>
+            <fsw-button label="{{'button.Save' | translate}}" (click)="clientForm.valid ? onSubmit() : ''" [disabled]="!clientForm.valid" severityLevel="success" class="enter" ></fsw-button>
+            <a routerLink="/clients">
+                <fsw-button label="{{'button.Back' | translate}}"></fsw-button>
             </a>
         </div>
     </div>
-</p-tabView>
 </p-panel>
 
-<!-- <form class="needs-validation" [formGroup]="clientForm">
-    <custom-input [label]="'First Name'" [validations]="{required:'First Name required', 'minlength':'Minimum of 2 characters'}">
-      <input inputRef class="form-control" [(ngModel)]="client.company" formControlName="firstName" type="text" />
-    </custom-input>
-
-    <div>
-      <button [disabled]="clientForm.invalid"
-
-      type="submit" class="btn btn-primary">Primary</button>
-    </div>
-</form> -->
-
-<!-- [disabled]="!clientForm.valid"  (click)="clientForm.valid ? onSubmit() : ''" -->
+<!-- для минимума + задание цифры
+('error.MinLeght' | translate) + '2' -->

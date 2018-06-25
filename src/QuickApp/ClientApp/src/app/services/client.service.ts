@@ -12,7 +12,6 @@ export class ClientService extends EndpointFactory {
     private readonly _ClientsGetUrl = '/api/Clients';
     private readonly _ClientCreateUpdateUrl = '/api/Clients';
     private readonly _ClientIdUrl = '/api/Clients/';
-    // private readonly _ClientGetByNameUrl: string = '/api/Clients/users/';
 
     constructor(protected http: HttpClient, protected configurations: ConfigurationService,  injector: Injector) {
         super(http, configurations, injector);

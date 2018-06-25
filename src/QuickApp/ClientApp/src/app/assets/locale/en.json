@@ -126,12 +126,24 @@
             "Saving": "Saving..."
         }
     },
-    "buttons": {
+    "button": {
         "Close": "Close",
         "Edit": "Edit",
         "Cancel": "Cancel",
         "Save": "Save",
         "Back": "Back",
-        "Generate": "Generate"
+        "Delete": "Delete"
+    },
+    "error": {
+        "Required": "Field is requied",
+        "MinLength": "Minimum length is ",
+        "MaxLength": "Maximum length is ",
+        "CustomUsual": "This field is not matching pattern"
+    },
+    "client": {
+        "FullName": "Full Name",
+        "Company": "Company",
+        "Email": "Email",
+        "Phone": "Phone"
     }
 }

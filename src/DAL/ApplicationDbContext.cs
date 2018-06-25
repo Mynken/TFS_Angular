@@ -8,13 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using DAL.Models.Interfaces;
+using FSW_TFS.DAL.Models.TFS;
 
 namespace DAL
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
         public string CurrentUserId { get; set; }
-        //public DbSet<CarInfo> CarInfos { get; set; }
+        public DbSet<Client> Clients { get; set; }
 
         public ApplicationDbContext(DbContextOptions options) : base(options)
         { }

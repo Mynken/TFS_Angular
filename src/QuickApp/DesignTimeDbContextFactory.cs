@@ -25,7 +25,7 @@ namespace CarWashApp
 
             var builder = new DbContextOptionsBuilder<ApplicationDbContext>();
 
-            builder.UseSqlServer(configuration["ConnectionStrings:DefaultConnection"], b => b.MigrationsAssembly("AppTittle.Web"));
+            builder.UseSqlServer(configuration["ConnectionStrings:DefaultConnection"], b => b.MigrationsAssembly("FSW_TFS.Web"));
             builder.UseOpenIddict();
 
             return new ApplicationDbContext(builder.Options);
