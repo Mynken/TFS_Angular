@@ -15,8 +15,7 @@ namespace DAL
         readonly ApplicationDbContext _context;
 
         IClientRepository _clients;
-
-
+        IProjectRepository _projects;
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -34,6 +33,16 @@ namespace DAL
             }
         }
 
+        public IProjectRepository Projects
+        {
+            get
+            {
+                if (_projects == null)
+                    _projects = new ProjectRepository(_context);
+
+                return _projects;
+            }
+        }
         public int SaveChanges()
         {
             return _context.SaveChanges();

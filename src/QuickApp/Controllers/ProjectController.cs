@@ -1,26 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using DAL;
-using Microsoft.Extensions.Logging;
-using FSW_TFS.DAL.Models.TFS;
 using System.Net;
+using System.Threading.Tasks;
+using DAL;
+using FSW_TFS.DAL.Models.TFS;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
-namespace CarWashApp.Controllers
+namespace FSW_TFS.Web.Controllers
 {
     [Authorize]
     [Produces("application/json")]
-    [Route("api/Clients")]
-    public class ClientController : Controller
+    [Route("api/Projects")]
+    public class ProjectController : Controller
     {
         private IUnitOfWork _unitOfWork;
         readonly ILogger _logger;
 
-        public ClientController(IUnitOfWork unitOfWork, ILogger<ClientController> logger)
+        public ProjectController(IUnitOfWork unitOfWork, ILogger<ProjectController> logger)
         {
             _unitOfWork = unitOfWork;
             _logger = logger;
@@ -29,23 +28,23 @@ namespace CarWashApp.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var clients = _unitOfWork.Clients.GetAll();
-            return Ok(clients);
+            var projects = _unitOfWork.Projects.GetAll();
+            return Ok(projects);
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetClient(int id)
+        public IActionResult GetProject(int id)
         {
-            var client = _unitOfWork.Clients.Get(id);
-            return new ObjectResult(client);
+            var project = _unitOfWork.Projects.Get(id);
+            return new ObjectResult(project);
         }
 
         [HttpPut]
-        public IActionResult Update([FromBody]Client client)
+        public IActionResult Update([FromBody]Project project)
         {
             try
             {
-                _unitOfWork.Clients.Update(client);
+                _unitOfWork.Projects.Update(project);
                 return Ok();
             }
             catch (Exception ex)
@@ -56,12 +55,13 @@ namespace CarWashApp.Controllers
                 return StatusCode((int)HttpStatusCode.BadRequest, errorId);
             }
         }
+
         [HttpPost]
-        public IActionResult Add([FromBody]Client client)
+        public IActionResult Add([FromBody]Project project)
         {
             try
             {
-                _unitOfWork.Clients.Add(client);
+                _unitOfWork.Projects.Add(project);
                 return Ok();
             }
             catch (Exception ex)
@@ -78,8 +78,8 @@ namespace CarWashApp.Controllers
         {
             try
             {
-                var client = _unitOfWork.Clients.Get(id);
-                _unitOfWork.Clients.Remove(client);
+                var project = _unitOfWork.Projects.Get(id);
+                _unitOfWork.Projects.Remove(project);
                 return Ok();
             }
             catch (Exception ex)
@@ -90,6 +90,5 @@ namespace CarWashApp.Controllers
                 return StatusCode((int)HttpStatusCode.BadRequest, errorId);
             }
         }
-
     }
 }

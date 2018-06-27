@@ -1,3 +1,4 @@
+import { ProjectEditComponent } from './components/view/projects/project-edit/project-edit.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -10,6 +11,8 @@ import { AuthGuard } from './services/auth-guard.service';
 import { ClientsLayoutComponent } from './components/view/clients/clients-layout/clients-layout.component';
 import { ClientCreateComponent } from './components/view/clients/client-create/client-create.component';
 import { ClientEditComponent } from './components/view/clients/client-edit/client-edit.component';
+import { ProjectsLayoutComponent } from './components/view/projects/projects-layout/projects-layout.component';
+import { ProjectCreateComponent } from './components/view/projects/project-create/project-create.component';
 
  @NgModule({
     imports: [
@@ -19,7 +22,11 @@ import { ClientEditComponent } from './components/view/clients/client-edit/clien
             { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard], data: { title: 'Settings' } },
             { path: 'clients', component: ClientsLayoutComponent, canActivate: [AuthGuard], data: { title: 'Clients'} },
             { path: 'client-create', component: ClientCreateComponent, canActivate: [AuthGuard], data: { title: 'Clients create'}  },
-            { path: 'client-edit/:id', component: ClientEditComponent, canActivate: [AuthGuard], data: { title: 'Clients create'}  },
+            { path: 'client-edit/:id', component: ClientEditComponent, canActivate: [AuthGuard], data: { title: 'Clients edit'}  },
+            { path: 'projects', component: ProjectsLayoutComponent, canActivate: [AuthGuard], data: { title: 'Projects'} },
+            { path: 'project-create', component: ProjectCreateComponent, canActivate: [AuthGuard], data: { title: 'Projects create'} },
+            { path: 'project-edit/:id', component: ProjectEditComponent, canActivate: [AuthGuard], data: { title: 'Projects edit'} },
+
             // { path: 'car-edit/:id', component: CarEditComponent, canActivate: [AuthGuard], data: { title: 'EditCar' } },
             { path: 'home', redirectTo: '/', pathMatch: 'full' },
             { path: '**', component: NotFoundComponent, data: { title: 'Page Not Found' } },

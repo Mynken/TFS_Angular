@@ -11,6 +11,7 @@ namespace DAL
     public interface IUnitOfWork
     {
         IClientRepository Clients { get; }
+        IProjectRepository Projects { get; }
 
         int SaveChanges();
     }

@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { AlertService, MessageSeverity, DialogType } from '../../../../services/alert.service';
-import { fadeInOut } from '../../../../services/animations';
-import { Client, IClient } from '../../../../models/client';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { ClientService } from '../../../../services/client.service';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { inputRangeValidator, emailValidator } from '../../../../directives/validation/validators';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+
+import { emailValidator, inputRangeValidator } from '../../../../directives/validation/validators';
+import { Client, IClient } from '../../../../models/client';
+import { AlertService, MessageSeverity } from '../../../../services/alert.service';
+import { fadeInOut } from '../../../../services/animations';
+import { ClientService } from '../../../../services/custom/client.service';
 
 @Component({
   selector: 'client-edit',

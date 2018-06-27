@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('CarWashApp', () => {
+describe('FSW_TFS', () => {
   let page: AppPage;
 
   beforeEach(() => {

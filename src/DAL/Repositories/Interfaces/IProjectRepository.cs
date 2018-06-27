@@ -3,7 +3,7 @@ using FSW_TFS.DAL.Models.TFS;
 
 namespace FSW_TFS.DAL.Repositories.Interfaces
 {
-    public interface IClientRepository : IRepository<Client>
+    public interface IProjectRepository : IRepository<Project>
     {
     }
 }

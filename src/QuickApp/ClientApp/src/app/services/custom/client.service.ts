@@ -1,10 +1,9 @@
 import { Injectable, Injector } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Client } from '../models/client';
+import { HttpClient } from '@angular/common/http';
+import { Client } from '../../models/client';
 import { Observable } from 'rxjs/Observable';
-import { ConfigurationService } from './configuration.service';
-import { EndpointFactory } from './endpoint-factory.service';
-
+import { ConfigurationService } from '../configuration.service';
+import { EndpointFactory } from '../endpoint-factory.service';
 
 @Injectable()
 export class ClientService extends EndpointFactory {
@@ -13,9 +12,9 @@ export class ClientService extends EndpointFactory {
     private readonly _ClientCreateUpdateUrl = '/api/Clients';
     private readonly _ClientIdUrl = '/api/Clients/';
 
-    constructor(protected http: HttpClient, protected configurations: ConfigurationService,  injector: Injector) {
+    constructor(protected http: HttpClient, protected configurations: ConfigurationService, injector: Injector) {
         super(http, configurations, injector);
-     }
+    }
 
     getClientsList(): Observable<Client[]> {
         return this.http.get<Client[]>(this.configurations.baseUrl + this._ClientsGetUrl, this.getRequestHeaders());
@@ -35,5 +34,5 @@ export class ClientService extends EndpointFactory {
 
     deleteClient(id: number): Observable<any> {
         return this.http.delete(this.configurations.baseUrl + this._ClientIdUrl + String(id), this.getRequestHeaders());
-      }
+    }
 }

@@ -1,50 +1,49 @@
-import { ClientService } from '../../../../services/custom/client.service';
 import { Component, OnInit } from '@angular/core';
 import { fadeInOut } from '../../../../services/animations';
 import { AlertService, DialogType, MessageSeverity } from '../../../../services/alert.service';
-import { Client } from '../../../../models/client';
+import { Project } from '../../../../models/project';
 import { Router } from '@angular/router';
+import { ProjectService } from '../../../../services/custom/project.service';
 
 @Component({
-    selector: 'clients-layout',
-    templateUrl: './clients-layout.component.html',
-    styleUrls: ['./clients-layout.component.css'],
-    animations: [fadeInOut]
+  selector: 'projects-layout',
+  templateUrl: './projects-layout.component.html',
+  styleUrls: ['./projects-layout.component.css'],
+  animations: [fadeInOut]
 })
-export class ClientsLayoutComponent implements OnInit {
+export class ProjectsLayoutComponent implements OnInit {
 
-    public clients: Client[] = [];
+    public projects: Project[] = [];
     public columnsForsearch: any[];
 
     constructor(private alertService: AlertService,
                 private router: Router,
-                private clientService: ClientService) { }
+                private projectService: ProjectService) { }
 
     ngOnInit(): void {
         this.columnsForsearch = [
-            { field: 'company', header: 'company' },
-            { field: 'fullName', header: 'fullName' },
-            { field: 'phone', header: 'phone' },
-            { field: 'email', header: 'email' }
+            { field: 'name', header: 'name' },
+            { field: 'serverInfo', header: 'serverInfo' },
         ];
-        this.clientService.getClientsList()
-            .subscribe( data => { this.clients = data; } );
+
+        this.projectService.getProjectsList()
+            .subscribe( data => { this.projects = data; } );
     }
 
     edit(id: number): void {
-        this.router.navigate(['/client-edit/', id]);
+        this.router.navigate(['/project-edit/', id]);
     }
 
     delete(id: number): void {
         this.alertService.showDialog('Are you sure?', DialogType.confirm,
-            () => this.clientService.deleteClient(id)
+            () => this.projectService.deleteProject(id)
                 .subscribe(
                 data => data,
                 error => {
                     console.log(error);
                     this.alertService.showMessage('An error has occurred!', error, MessageSeverity.error);
                 },
-                () => { this.clients = this.clients.filter(x => x.id !== id); }),
+                () => { this.projects = this.projects.filter(x => x.id !== id); }),
         () => this.alertService.showMessage('Operation DELETE cancelled!', '', MessageSeverity.default));
     }
 

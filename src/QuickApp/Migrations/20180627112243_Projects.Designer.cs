@@ -8,12 +8,13 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
-namespace CarWashApp.Migrations
+namespace AppTittle.Web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180627112243_Projects")]
+    partial class Projects
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,26 +140,6 @@ namespace CarWashApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Clients");
-                });
-
-            modelBuilder.Entity("FSW_TFS.DAL.Models.TFS.Project", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("ClientId");
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("ServerInfo");
-
-                    b.Property<int>("Status");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Projects");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

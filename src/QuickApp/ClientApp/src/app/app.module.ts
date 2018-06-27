@@ -54,11 +54,15 @@ import { FswRadioButtonComponent } from './components/controls/fsw-controls/fsw-
 import { ClientsLayoutComponent } from './components/view/clients/clients-layout/clients-layout.component';
 import { ClientCreateComponent } from './components/view/clients/client-create/client-create.component';
 import { ClientEditComponent } from './components/view/clients/client-edit/client-edit.component';
-import { ClientService } from './services/client.service';
+import { ClientService } from './services/custom/client.service';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { CommonModule } from '@angular/common';
 import { FSWCustomInputComponent } from './components/controls/fsw-controls/fsw-custom-input/fsw-custom-input.component';
 import { InputRefDirective } from './directives/validation/input-ref.directive';
+import { ProjectsLayoutComponent } from './components/view/projects/projects-layout/projects-layout.component';
+import { ProjectCreateComponent } from './components/view/projects/project-create/project-create.component';
+import { ProjectEditComponent } from './components/view/projects/project-edit/project-edit.component';
+import { ProjectService } from './services/custom/project.service';
 
 @NgModule({
     imports: [
@@ -110,7 +114,10 @@ import { InputRefDirective } from './directives/validation/input-ref.directive';
         ClientCreateComponent,
         ClientEditComponent,
         FSWCustomInputComponent,
-        InputRefDirective
+        InputRefDirective,
+        ProjectsLayoutComponent,
+        ProjectCreateComponent,
+        ProjectEditComponent
     ],
     providers: [
         { provide: 'BASE_URL', useFactory: getBaseUrl },
@@ -123,6 +130,7 @@ import { InputRefDirective } from './directives/validation/input-ref.directive';
         AccountEndpoint,
         LocalStoreManager,
         ClientService,
+        ProjectService,
         EndpointFactory
     ],
     bootstrap: [AppComponent]

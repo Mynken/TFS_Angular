@@ -1,6 +1,5 @@
 <input pInputText
                 type="text"
-                (ngModelChange) = "sendNotification($event)"
                 [(ngModel)]="model"
                 [pKeyFilter]="pKeyFilter"
                 [(ngModel)]="model"
@@ -10,5 +9,4 @@
                 pTooltip={{pTooltip}}
                 tooltipEvent={{tooltipEvent}}
                 tooltipPosition={{tooltipPosition}}
-                [style]="style"
-                [ngClass]="(validClass && validClass === undefined) ? 'input-error': ''">
+                [style]="style">
