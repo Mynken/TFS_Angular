@@ -1,4 +1,3 @@
-import { ProjectEditComponent } from './components/view/projects/project-edit/project-edit.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -13,6 +12,7 @@ import { ClientCreateComponent } from './components/view/clients/client-create/c
 import { ClientEditComponent } from './components/view/clients/client-edit/client-edit.component';
 import { ProjectsLayoutComponent } from './components/view/projects/projects-layout/projects-layout.component';
 import { ProjectCreateComponent } from './components/view/projects/project-create/project-create.component';
+import { ProjectEditComponent } from './components/view/projects/project-edit/project-edit.component';
 
  @NgModule({
     imports: [

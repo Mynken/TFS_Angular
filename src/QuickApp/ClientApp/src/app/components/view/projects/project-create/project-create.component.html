@@ -23,9 +23,11 @@
                                     <div class="row">
                                         <label class="col-sm-3 control-label">ClientId</label>
                                         <div class="input-group col-lg-4">
-                                            <fsw-custom-input [validations]="{required: 'error.Required' | translate}">
-                                                <input inputRef class="form-control" [(ngModel)]="project.clientId" formControlName="clientId" type="text" />
-                                              </fsw-custom-input>
+                                            <select class="form-control"
+                                                    [(ngModel)]="project.clientId"
+                                                    formControlName="clientId">
+                                                        <option *ngFor="let client of allclients" [ngValue]="client.id">{{client.fullName}}</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </td>
@@ -35,9 +37,11 @@
                                     <div class="row">
                                         <label class="col-sm-3 control-label">Description</label>
                                         <div class="input-group col-lg-4">
-                                            <fsw-custom-input [validations]="{required: 'error.Required' | translate}">
-                                                    <input inputRef class="form-control" [(ngModel)]="project.description" formControlName="description" type="text" />
-                                            </fsw-custom-input>
+                                            <textarea maxlength="1000"
+                                                    [ngClass]="{'textAreaBind': true}"
+                                                    class="form-control"
+                                                    formControlName="description"
+                                                    required [(ngModel)]="project.description"></textarea>
                                         </div>
                                     </div>
                                 </td>
@@ -47,9 +51,11 @@
                                     <div class="row">
                                         <label class="col-sm-3 control-label">ServerInfo</label>
                                         <div class="input-group col-lg-4">
-                                            <fsw-custom-input [validations]="{required: 'error.Required' | translate}">
-                                                    <input inputRef class="form-control" [(ngModel)]="project.serverInfo" formControlName="serverInfo" type="text" />
-                                            </fsw-custom-input>
+                                                <textarea maxlength="1000"
+                                                        [ngClass]="{'textAreaBind': true}"
+                                                        class="form-control"
+                                                        formControlName="serverInfo"
+                                                        required [(ngModel)]="project.serverInfo"></textarea>
                                         </div>
                                     </div>
                                 </td>
@@ -59,9 +65,11 @@
                                     <div class="row">
                                         <label class="col-sm-3 control-label">Status</label>
                                         <div class="input-group col-lg-4">
-                                            <fsw-custom-input [validations]="{required: 'error.Required' | translate}">
-                                                    <input inputRef class="form-control" [(ngModel)]="project.status" formControlName="status" type="text" />
-                                            </fsw-custom-input>
+                                            <select class="form-control"
+                                                    [(ngModel)]="project.status"
+                                                    formControlName="status">
+                                                        <option *ngFor="let item of statuses" [ngValue]="item.value">{{item.name}}</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </td>
@@ -82,7 +90,9 @@
 </p-panel>
 <br>
 TODO: <br>
-1) clientID dropDown <br>
-2) descriptio n textarea <br>
-3) serverinfo textarea <br>
+
 4) status enum <br>
+
+<pre>{{project | json }}</pre>
+
+

@@ -1,11 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter, forwardRef, Optional, Host, SkipSelf } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { NG_VALIDATORS, AbstractControl, ControlContainer, FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Validation } from '../../../../models/enums';
 
 @Component({
   selector: 'fsw-input-text',
   templateUrl: './fsw-input-text.component.html',
-  styleUrls: ['./fsw-input-text.component.css']
+  styleUrls: ['./fsw-input-text.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FswInputTextComponent implements OnInit {
 

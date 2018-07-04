@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { fadeInOut } from '../../services/animations';
 import { ConfigurationService } from '../../services/configuration.service';
 import { AccountService } from '../../services/account.service';
@@ -10,6 +10,7 @@ import {Message} from 'primeng/components/common/api';
     selector: 'home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css'],
+    encapsulation: ViewEncapsulation.None,
     animations: [fadeInOut]
 })
 export class HomeComponent {

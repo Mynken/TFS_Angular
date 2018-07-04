@@ -1,14 +1,15 @@
-
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 
-import { emailValidator, inputRangeValidator } from '../../../../directives/validation/validators';
+import { Client } from '../../../../models/client';
+import { Status } from '../../../../models/enums';
 import { IProject, Project } from '../../../../models/project';
 import { AlertService, MessageSeverity } from '../../../../services/alert.service';
 import { fadeInOut } from '../../../../services/animations';
+import { ClientService } from '../../../../services/custom/client.service';
 import { ProjectService } from './../../../../services/custom/project.service';
 
 @Component({
@@ -22,6 +23,8 @@ export class ProjectEditComponent implements OnInit {
     public projectId: number;
     public projectForm: FormGroup;
     public project: IProject = new Project();
+    public allclients: Client[] = [];
+    public statuses: { name: string, value: number }[] = [];
 
     constructor(private alertService: AlertService,
         private router: Router,
@@ -29,6 +32,7 @@ export class ProjectEditComponent implements OnInit {
         private projectService: ProjectService,
         private _location: Location,
         private spinner: NgxSpinnerService,
+        private clientService: ClientService,
         private fb: FormBuilder) { }
 
     ngOnInit(): void {
@@ -38,6 +42,11 @@ export class ProjectEditComponent implements OnInit {
          });
          this.projectService.getProjectById(this.projectId).subscribe(
              data => { this.project = data; });
+        this.clientService.getClientsList()
+             .subscribe( data => { this.allclients = data; } );
+        this.statuses.push( {name: 'New', value: Status.New},
+                             {name: 'InWork', value: Status.InWork},
+                             {name: 'Finished', value: Status.Finished});
     }
 
     back(): void {

@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'fsw-button',
   templateUrl: './fsw-button.component.html',
-  styleUrls: ['./fsw-button.component.css']
+  styleUrls: ['./fsw-button.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class FswButtonComponent implements OnInit {
 

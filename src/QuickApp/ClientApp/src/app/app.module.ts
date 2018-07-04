@@ -61,8 +61,10 @@ import { FSWCustomInputComponent } from './components/controls/fsw-controls/fsw-
 import { InputRefDirective } from './directives/validation/input-ref.directive';
 import { ProjectsLayoutComponent } from './components/view/projects/projects-layout/projects-layout.component';
 import { ProjectCreateComponent } from './components/view/projects/project-create/project-create.component';
-import { ProjectEditComponent } from './components/view/projects/project-edit/project-edit.component';
 import { ProjectService } from './services/custom/project.service';
+import { ProjectEditComponent } from './components/view/projects/project-edit/project-edit.component';
+import { TransformClient } from './pipes/transfromClient.pipe';
+import { TransformStatus } from './pipes/transformStatus.pipe';
 
 @NgModule({
     imports: [
@@ -106,6 +108,8 @@ import { ProjectService } from './services/custom/project.service';
         BootstrapSelectDirective,
         BootstrapDatepickerDirective,
         GroupByPipe,
+        TransformClient,
+        TransformStatus,
         FswButtonComponent,
         FswInputTextComponent,
         FswAutocompleteComponent,
@@ -138,6 +142,6 @@ import { ProjectService } from './services/custom/project.service';
 export class AppModule {
 }
 
-export function getBaseUrl() {
+export function getBaseUrl(): any {
     return document.getElementsByTagName('base')[0].href;
 }

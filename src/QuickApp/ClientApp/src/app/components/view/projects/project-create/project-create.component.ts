@@ -1,3 +1,5 @@
+import { Status } from './../../../../models/enums';
+
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -8,6 +10,8 @@ import { IProject, Project } from '../../../../models/project';
 import { AlertService, MessageSeverity } from '../../../../services/alert.service';
 import { fadeInOut } from '../../../../services/animations';
 import { ProjectService } from './../../../../services/custom/project.service';
+import { ClientService } from '../../../../services/custom/client.service';
+import { Client } from '../../../../models/client';
 
 @Component({
   selector: 'project-create',
@@ -19,16 +23,24 @@ export class ProjectCreateComponent implements OnInit {
 
     public projectForm: FormGroup;
     public project: IProject = new Project();
+    public allclients: Client[] = [];
+    public statuses: { name: string, value: number }[] = [];
 
     constructor(private alertService: AlertService,
         private router: Router,
         private projectService: ProjectService,
         private _location: Location,
         private spinner: NgxSpinnerService,
-        private fb: FormBuilder) { }
+        private fb: FormBuilder,
+        private clientService: ClientService) { }
 
     ngOnInit(): void {
         this.createForm();
+        this.clientService.getClientsList()
+            .subscribe( data => { this.allclients = data; } );
+        this.statuses.push( {name: 'New', value: Status.New},
+                            {name: 'InWork', value: Status.InWork},
+                            {name: 'Finished', value: Status.Finished});
     }
 
     back(): void {
@@ -63,5 +75,13 @@ export class ProjectCreateComponent implements OnInit {
             serverInfo: new FormControl('', [Validators.required]),
             status: new FormControl('', [Validators.required])
         });
+    }
+
+    test(event: any) {
+        console.log(event)
+        if (event.itemValue) {
+            this.project.clientId = event.itemValue;
+        }
+
     }
 }

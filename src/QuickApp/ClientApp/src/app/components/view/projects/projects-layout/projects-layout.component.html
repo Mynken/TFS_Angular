@@ -11,7 +11,7 @@
                     <tr>
                         <th>Name</th>
                         <th>Description</th>
-                        <th>ServerInfo</th>
+                        <th>Status</th>
                         <th>Client</th>
                         <th>Manage</th>
                     </tr>
@@ -20,9 +20,8 @@
                     <tr>
                         <td>{{project.name}}</td>
                         <td>{{project.description}}</td>
-                        <td>{{project.serverInfo}}</td>
-                        <td>{{project.status}}</td>
-                        <td>{{project.clientId}}</td>
+                        <td>{{project.status | transformStatus}}</td>
+                        <td>{{project.clientId | transformClient }}</td>
                         <td>
                         <fsw-button label="{{'button.Edit' | translate}}" (click)="edit(project.id)" severityLevel="primary"></fsw-button>
                         <fsw-button label="{{'button.Delete' | translate}}" (click)="delete(project.id)" severityLevel="danger"></fsw-button>

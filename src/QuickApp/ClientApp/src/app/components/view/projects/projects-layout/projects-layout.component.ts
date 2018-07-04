@@ -23,7 +23,8 @@ export class ProjectsLayoutComponent implements OnInit {
     ngOnInit(): void {
         this.columnsForsearch = [
             { field: 'name', header: 'name' },
-            { field: 'serverInfo', header: 'serverInfo' },
+            { field: 'client', header: 'client' },
+            { field: 'status', header: 'status' }
         ];
 
         this.projectService.getProjectsList()

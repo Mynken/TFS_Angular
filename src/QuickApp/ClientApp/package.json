@@ -1,7 +1,7 @@
 {
   "name": "quickapp",
   "version": "1.1.0",
-  "description": "Angular5 (with ASP.NET Core) project template with complete login, user and role management. Plus other useful services for quick development",
+  "description": "TFS",
   "author": {
     "name": "Vladyslav Hrehul",
     "email": "waldes7k@gmail.com",
@@ -44,8 +44,8 @@
     "ng2-toasty": "^4.0.3",
     "ngx-bootstrap": "^2.0.2",
     "ngx-spinner": "^6.0.0",
-    "primeicons": "^1.0.0-beta.7",
-    "primeng": "^6.0.0-rc.1",
+    "primeicons": "^1.0.0-beta.9",
+    "primeng": "^6.0.0",
     "rxjs": "^5.5.6",
     "web-animations-js": "^2.3.1",
     "zone.js": "^0.8.20"

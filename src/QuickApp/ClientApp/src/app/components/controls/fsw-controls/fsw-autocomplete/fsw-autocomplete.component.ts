@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'fsw-autocomplete',
   templateUrl: './fsw-autocomplete.component.html',
-  styleUrls: ['./fsw-autocomplete.component.css']
+  styleUrls: ['./fsw-autocomplete.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FswAutocompleteComponent implements OnInit {
 
