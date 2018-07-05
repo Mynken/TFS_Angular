@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -18,8 +18,9 @@ import { ClientService } from '../../../../services/custom/client.service';
 })
 export class ClientEditComponent implements OnInit {
 
+    @ViewChild('clientForm')
+    clientForm: NgForm;
     public clientId: number;
-    public clientForm: FormGroup;
     public client: IClient = new Client();
 
     constructor(private alertService: AlertService,
@@ -63,7 +64,7 @@ export class ClientEditComponent implements OnInit {
     }
 
     private createForm(): any {
-        this.clientForm = this.fb.group({
+        this.clientForm.form = this.fb.group({
             fullName: new FormControl ('', [Validators.required]),
             company: new FormControl ('', [Validators.required, inputRangeValidator()]),
             email: new FormControl ('', [Validators.required, emailValidator()]),

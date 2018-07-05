@@ -1,12 +1,26 @@
-<input pInputText
-                type="text"
-                [(ngModel)]="model"
-                [pKeyFilter]="pKeyFilter"
-                [(ngModel)]="model"
-                placeholder={{placeholder}}
-                id={{id}}
-                size={{size}}
-                pTooltip={{pTooltip}}
-                tooltipEvent={{tooltipEvent}}
-                tooltipPosition={{tooltipPosition}}
-                [style]="style">
+<label class="col-sm-3 control-label">{{label}}</label>
+<div class="input-group col-lg-4">
+    <span class="input-group-addon">
+        <i class="fa fa-{{icon}}"></i>
+    </span>
+    <input pInputText
+            type="text"
+            [(ngModel)]="model"
+            [pKeyFilter]="pKeyFilter"
+            [(ngModel)]="model"
+            placeholder={{placeholder}}
+            id={{id}}
+            size={{size}}
+            pTooltip={{pTooltip}}
+            tooltipEvent={{tooltipEvent}}
+            tooltipPosition={{tooltipPosition}}
+            name={{name}}
+            [style]="style"
+            [ngClass]="{'input-error': hasError}"
+            (ngModelChange)="errorMessage()">
+
+    <ng-container *ngIf='hasError'>
+            <span class="text-danger"> {{errorMessage()}}</span>
+    </ng-container>
+</div>
+

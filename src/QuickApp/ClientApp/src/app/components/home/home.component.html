@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <header class="pageHeader">
         <h3>
             <i class="fa fa-tachometer fa-lg page-caption" aria-hidden="true"></i> {{'pageHeader.Dashboard' | translate}}</h3>
@@ -8,10 +8,10 @@
         <p>List of our controls</p>
     </div>
 
-    <!-- <div class="ui-g-12 ui-md-4">
+    <div class="ui-g-12 ui-md-4">
         <h3>Icon</h3>
         <p-calendar [(ngModel)]="date3" [showIcon]="true"></p-calendar> <span style="margin-left:35px">{{date3|date}}</span>
-    </div> -->
+    </div>
 
 <h3>Buttons</h3>
 
@@ -29,7 +29,7 @@
 
 <!-- <fsw-input-text pKeyFilter="int"
 [(model)]="contract.thirdAgreementNumber"></fsw-input-text> -->
-<fsw-input-text pKeyFilter="int" placeholder="Integers"></fsw-input-text>
+<!-- <fsw-input-text pKeyFilter="int" placeholder="Integers"></fsw-input-text>
 <fsw-input-text pKeyFilter="alpha" placeholder="Alphabetic"></fsw-input-text>
 
 <h3>Autocomplete</h3>
@@ -46,7 +46,7 @@
 <fsw-radio-button [(model)]="radioModel" value="text 2" label="text 2"></fsw-radio-button>
 <fsw-radio-button [(model)]="radioModel" value="text 3" label="text 3"></fsw-radio-button>
 
-<h3>Table</h3>
+<h3>Table</h3> -->
 
 <!-- <p-table #dv [value]="kontrahents" [paginator]="true" [rows]="5" [columns]="cols" [style]="{'text-align':'center'}">
         <ng-template pTemplate="header">
@@ -69,7 +69,7 @@
             </ng-template>
 </p-table> -->
 
-<h3>TabView</h3>
+<!-- <h3>TabView</h3>
 
 <p-tabView>
         <p-tabPanel header="Godfather I" leftIcon="fa-calendar">
@@ -99,4 +99,49 @@
                     style="margin-left:.5em"
                     tooltipPosition="bottom"></fsw-input-text>
 
-</div>
+                    <h3 class="first">Single</h3>
+                    <p-dropdown [options]="cities" [(ngModel)]="selectedCity" placeholder="Select a City" optionLabel="name" [showClear]="true"></p-dropdown>
+                    <p>Selected City: {{selectedCity ? selectedCity.name : 'none'}}</p>
+
+                    <div class="ui-g-12 ui-md-4">
+                        <h3>Icon</h3>
+                        <p-calendar [(ngModel)]="date3" [showIcon]="true"></p-calendar> <span style="margin-left:35px">{{date3|date}}</span>
+                    </div>
+
+</div> -->
+
+<form #createFilmForm="ngForm">
+    <div class="row">
+        <label class="col-sm-3 control-label">Номер</label>
+        <div class="input-group col-lg-4">
+            <span class="input-group-addon">
+                <i class="fa fa-list-ol"></i>
+            </span>
+            <fsw-input-text
+                pKeyFilter="int"
+                [(model)]="options.test1"
+                name="test1"
+                [hasError]="createFilmForm?.form.controls.test1.invalid"
+                [validations]="createFilmForm?.form.controls.test1.errors"></fsw-input-text>
+        </div>
+    </div>
+    <div class="row">
+        <label class="col-sm-3 control-label">ABC</label>
+        <div class="input-group col-lg-4">
+            <span class="input-group-addon">
+                <i class="fa fa-list-ol"></i>
+            </span>
+            <fsw-input-text
+            [(model)]="options.test2"
+            pKeyFilter="alphanum"
+            name="test2"
+            [hasError]="createFilmForm?.form.controls.test2.invalid"
+            [validations]="createFilmForm?.form.controls.test2.errors"></fsw-input-text>
+        </div>
+    </div>
+</form>
+<fsw-button label="Info" severityLevel="info" (click)="onSubmit()"></fsw-button>
+<div class="ui-g-12 ui-md-4">
+        <h3>Icon</h3>
+        <p-calendar [(ngModel)]="date3" [showIcon]="true"></p-calendar> <span style="margin-left:35px">{{date3|date}}</span>
+    </div>

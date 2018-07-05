@@ -14,7 +14,7 @@ export class TransformClient implements PipeTransform {
     }
 
     transform(value: number): string {
-        if (this.clients) {
+        if (this.clients.length > 0) {
             return this.clients.find(x => x.id === value).fullName;
         } else {
             return 'abc123';

@@ -1,12 +1,13 @@
 import { ValidatorFn, AbstractControl } from '@angular/forms';
 
 export function inputRangeValidator(): ValidatorFn {
-    const pattern: RegExp = /^[\w\.\$@\*\!]{2,30}$/;
+    // const pattern: RegExp = /^[\w\.\$@\*\!]{2,30}$/; only for english
+    const pattern: RegExp = /^.{2,30}$/;
     return (control: AbstractControl): { [key: string]: any } => {
-        if (!(control.dirty || control.touched)) {
+        if (!(control.dirty || control.touched )) { // comment if using model from "write temporary file"
             return null;
         } else {
-            return pattern.test(control.value) ? null : {custom: `error`};
+            return pattern.test(control.value) ? null : {custom: `Value must be more then 1 word`};
         }
     };
 }

@@ -1,56 +1,57 @@
 <ngx-spinner bdColor="rgba(159,202,249,0.8)" size="large" color="#2341f0" type="ball-clip-rotate-multiple"></ngx-spinner>
-<h1>Create client</h1>
+<h1>Edit client</h1>
 <p-panel>
         <div [@fadeInOut] class="container" >
-            <form (ngSubmit)="onSubmit()" [formGroup]="clientForm">
+            <form (ngSubmit)="onSubmit()" #clientForm="ngForm">
                 <p-panel header="Client information" >
                     <table class="table table-striped table-hover table-responsive">
                         <tbody>
                             <tr>
                                 <td>
                                     <div class="row">
-                                        <label class="col-sm-3 control-label">{{'client.FullName' | translate}}</label>
-                                        <div class="input-group col-lg-4">
-                                            <fsw-custom-input [validations]="{required:'error.Required' | translate}">
-                                                <input pInputText pKeyFilter="alphanum" inputRef class="form-control" [(ngModel)]="client.fullName" formControlName="fullName" type="text" />
-                                              </fsw-custom-input>
-                                        </div>
+                                        <fsw-input-text
+                                        [(ngModel)]="client.fullName" ngDefaultControl
+                                        name="fullName"
+                                        [hasError]="clientForm?.form.controls.fullName.invalid"
+                                        [validations]="clientForm?.form.controls.fullName.errors"
+                                        label="{{'client.FullName' | translate}}"
+                                        icon="bullseye"></fsw-input-text>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="row">
-                                        <label class="col-sm-3 control-label">Company</label>
-                                        <div class="input-group col-lg-4">
-                                            <fsw-custom-input [validations]="{'required': ('error.Required' | translate) + ',', 'custom':'error.CustomUsual' | translate}">
-                                                <input inputRef class="form-control" [(ngModel)]="client.company" formControlName="company" type="text" />
-                                              </fsw-custom-input>
-                                        </div>
+                                        <fsw-input-text
+                                        [(ngModel)]="client.company" ngDefaultControl
+                                        name="company"
+                                        [hasError]="clientForm?.form.controls.company.invalid"
+                                        [validations]="clientForm?.form.controls.company.errors"
+                                        label="{{'client.Company' | translate}}"></fsw-input-text>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="row">
-                                        <label class="col-sm-3 control-label">Email</label>
-                                        <div class="input-group col-lg-4">
-                                            <fsw-custom-input [validations]="{required: ('error.Required' | translate) + ',', 'custom':'error.CustomUsual' | translate}">
-                                                    <input inputRef class="form-control" [(ngModel)]="client.email" formControlName="email" type="text" />
-                                            </fsw-custom-input>
-                                        </div>
+                                        <fsw-input-text
+                                        [(ngModel)]="client.email" ngDefaultControl
+                                        name="email"
+                                        [hasError]="clientForm?.form.controls.email.invalid"
+                                        [validations]="clientForm?.form.controls.email.errors"
+                                        label="Email"></fsw-input-text>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="row">
-                                        <label class="col-sm-3 control-label">Phone</label>
-                                        <div class="input-group col-lg-4">
-                                            <fsw-custom-input [validations]="{required:'error.Required' | translate}">
-                                                    <input pKeyFilter="num" inputRef class="form-control" [(ngModel)]="client.phone" formControlName="phone" type="text" />
-                                            </fsw-custom-input>
-                                        </div>
+                                        <fsw-input-text
+                                        [(ngModel)]="client.phone" ngDefaultControl
+                                        name="phone"
+                                        [hasError]="clientForm?.form.controls.phone.invalid"
+                                        [validations]="clientForm?.form.controls.phone.errors"
+                                        label="Phone"></fsw-input-text>
                                     </div>
                                 </td>
                             </tr>
@@ -60,14 +61,9 @@
             </form>
         </div>
     <div class="col-md-10">
-        <div class="save-create-kontrahent-ie">
-            <fsw-button label="{{'button.Save' | translate}}" (click)="clientForm.valid ? onSubmit() : ''" [disabled]="!clientForm.valid" severityLevel="success" class="enter" ></fsw-button>
-            <a routerLink="/clients">
-                <fsw-button label="{{'button.Back' | translate}}"></fsw-button>
-            </a>
-        </div>
+        <fsw-button label="{{'button.Save' | translate}}" (click)="clientForm.valid ? onSubmit() : ''" [disabled]="!clientForm.valid" severityLevel="success" class="enter" ></fsw-button>
+        <a routerLink="/clients">
+            <fsw-button label="{{'button.Back' | translate}}"></fsw-button>
+        </a>
     </div>
 </p-panel>
-
-<!-- для минимума + задание цифры
-('error.MinLeght' | translate) + '2' -->
