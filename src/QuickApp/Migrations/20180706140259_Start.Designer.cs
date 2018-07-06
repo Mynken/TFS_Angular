@@ -11,8 +11,8 @@ using System;
 namespace AppTittle.Web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180627112243_Projects")]
-    partial class Projects
+    [Migration("20180706140259_Start")]
+    partial class Start
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -140,6 +140,26 @@ namespace AppTittle.Web.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Clients");
+                });
+
+            modelBuilder.Entity("FSW_TFS.DAL.Models.TFS.Project", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("ClientId");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("ServerInfo");
+
+                    b.Property<int>("Status");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Projects");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
