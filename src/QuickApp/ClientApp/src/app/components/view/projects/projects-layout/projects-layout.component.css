@@ -1,0 +1,14 @@
+h1 {
+    text-align: center;
+}
+
+.table {
+    margin-top: 10px;
+}
+th {
+    text-align: center;
+}
+
+.ui-panel.ui-widget{
+    margin-top: 20px !important;
+}

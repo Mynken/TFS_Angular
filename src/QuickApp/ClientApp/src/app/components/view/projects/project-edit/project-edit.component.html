@@ -2,75 +2,70 @@
 <h1>Edit project</h1>
 <p-panel>
         <div [@fadeInOut] class="container" >
-            <form (ngSubmit)="onSubmit()" [formGroup]="projectForm">
+            <form (ngSubmit)="onSubmit()" #projectForm="ngForm">
                 <p-panel header="Project information" >
                     <table class="table table-striped table-hover table-responsive">
                         <tbody>
                             <tr>
                                 <td>
                                     <div class="row">
-                                        <label class="col-sm-3 control-label">Name</label>
-                                        <div class="input-group col-lg-4">
-                                            <fsw-custom-input [validations]="{required: 'error.Required' | translate}">
-                                                <input pInputText pKeyFilter="alphanum" inputRef class="form-control" [(ngModel)]="project.name" formControlName="name" type="text" />
-                                              </fsw-custom-input>
-                                        </div>
+                                        <fsw-input-text
+                                        [(ngModel)]="project.name" ngDefaultControl
+                                        name="name"
+                                        [hasError]="projectForm?.form.controls.name.invalid"
+                                        [validations]="projectForm?.form.controls.name.errors"
+                                        label="Name"
+                                        icon="bullseye"></fsw-input-text>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="row">
-                                        <label class="col-sm-3 control-label">ClientId</label>
-                                        <div class="input-group col-lg-4">
-                                            <select class="form-control"
-                                                    [(ngModel)]="project.clientId"
-                                                    formControlName="clientId">
-                                                        <option *ngFor="let client of allclients" [ngValue]="client.id">{{client.fullName}}</option>
-                                            </select>
-                                        </div>
+                                        <fsw-textarea 
+                                        [(ngModel)]="project.description" ngDefaultControl
+                                        name="description"
+                                        [hasError]="projectForm?.form.controls.description.invalid"
+                                        [validations]="projectForm?.form.controls.description.errors"
+                                        label="Description"></fsw-textarea>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="row">
-                                        <label class="col-sm-3 control-label">Description</label>
-                                        <div class="input-group col-lg-4">
-                                            <textarea maxlength="1000"
-                                                    [ngClass]="{'textAreaBind': true}"
-                                                    class="form-control"
-                                                    formControlName="description"
-                                                    required [(ngModel)]="project.description"></textarea>
-                                        </div>
+                                        <fsw-textarea 
+                                        [(ngModel)]="project.serverInfo" ngDefaultControl
+                                        name="serverInfo"
+                                        [hasError]="projectForm?.form.controls.serverInfo.invalid"
+                                        [validations]="projectForm?.form.controls.serverInfo.errors"
+                                        label="Server Info"></fsw-textarea>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <div class="row">
-                                        <label class="col-sm-3 control-label">ServerInfo</label>
-                                        <div class="input-group col-lg-4">
-                                                <textarea maxlength="1000"
-                                                        [ngClass]="{'textAreaBind': true}"
-                                                        class="form-control"
-                                                        formControlName="serverInfo"
-                                                        required [(ngModel)]="project.serverInfo"></textarea>
-                                        </div>
+                                        <fsw-dropdown 
+                                        [(ngModel)]="project.clientId" ngDefaultControl
+                                        [options]="cars"
+                                        name="clientId"
+                                        [hasError]="projectForm?.form.controls.clientId.invalid"
+                                        [validations]="projectForm?.form.controls.clientId.errors"
+                                        label="Client Id"></fsw-dropdown>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr>                         
                             <tr>
                                 <td>
                                     <div class="row">
-                                        <label class="col-sm-3 control-label">Status</label>
-                                        <div class="input-group col-lg-4">
-                                            <select class="form-control"
-                                                    [(ngModel)]="project.status"
-                                                    formControlName="status">
-                                                        <option *ngFor="let item of statuses" [ngValue]="item.value">{{item.name}}</option>
-                                            </select>
-                                        </div>
+                                        <fsw-dropdown 
+                                        [(ngModel)]="project.status" ngDefaultControl
+                                        [options]="cars"
+                                        name="status"
+                                        [hasError]="projectForm?.form.controls.status.invalid"
+                                        [validations]="projectForm?.form.controls.status.errors"
+                                        label="Client Id"></fsw-dropdown>
                                     </div>
                                 </td>
                             </tr>
@@ -88,6 +83,3 @@
         </div>
     </div>
 </p-panel>
-
-
-

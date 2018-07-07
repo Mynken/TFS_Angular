@@ -1,0 +1,24 @@
+<label class="col-sm-3 control-label">{{label}}</label>
+<div class="input-group col-lg-4">
+    <span class="input-group-addon">
+        <i class="fa fa-{{icon}}"></i>
+    </span>
+  
+    <textarea pInputTextarea
+          name={{name}}
+          [rows]="rows"
+          [cols]="cols"      
+          [maxlength]="maxlength"
+          [ngClass]="{'input-error': hasError}"
+          [(ngModel)]="model"
+          (ngModelChange)="errorMessage()"
+          placeholder={{placeholder}}
+          maxlength={{maxlength}}
+          autoResize="autoResize"></textarea>
+
+    <ng-container *ngIf='hasError'>
+            <span class="text-danger"> {{errorMessage()}}</span>
+    </ng-container>
+</div>
+
+<!-- resize: none; -->

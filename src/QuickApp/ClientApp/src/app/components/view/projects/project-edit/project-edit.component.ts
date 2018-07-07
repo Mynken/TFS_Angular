@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -11,6 +11,7 @@ import { AlertService, MessageSeverity } from '../../../../services/alert.servic
 import { fadeInOut } from '../../../../services/animations';
 import { ClientService } from '../../../../services/custom/client.service';
 import { ProjectService } from './../../../../services/custom/project.service';
+import { SelectItem } from 'primeng/primeng';
 
 @Component({
   selector: 'project-edit',
@@ -20,11 +21,14 @@ import { ProjectService } from './../../../../services/custom/project.service';
 })
 export class ProjectEditComponent implements OnInit {
 
+
+    @ViewChild('projectForm')
+    public projectForm: NgForm;
     public projectId: number;
-    public projectForm: FormGroup;
     public project: IProject = new Project();
     public allclients: Client[] = [];
     public statuses: { name: string, value: number }[] = [];
+    cars: SelectItem[];
 
     constructor(private alertService: AlertService,
         private router: Router,
@@ -47,6 +51,19 @@ export class ProjectEditComponent implements OnInit {
         this.statuses.push( {name: 'New', value: Status.New},
                              {name: 'InWork', value: Status.InWork},
                              {name: 'Finished', value: Status.Finished});
+
+                             this.cars = [
+                                {label: 'Audi', value: 1},
+                                {label: 'BMW', value: 2},
+                                {label: 'Fiat', value: 3},
+                                {label: 'Ford', value: 4},
+                                {label: 'Honda', value: 5},
+                                {label: 'Jaguar', value: 6},
+                                {label: 'Mercedes', value: 7},
+                                {label: 'Renault', value: 8},
+                                {label: 'VW', value: 9},
+                                {label: 'Volvo', value: 10}
+                            ];
     }
 
     back(): void {
@@ -74,12 +91,12 @@ export class ProjectEditComponent implements OnInit {
     }
 
     private createForm(): any {
-        this.projectForm = this.fb.group({
-            name: new FormControl('', [Validators.required]),
-            clientId: new FormControl('', [Validators.required]),
-            description: new FormControl('', [Validators.required]),
-            serverInfo: new FormControl('', [Validators.required]),
-            status: new FormControl('', [Validators.required])
+        this.projectForm.form = this.fb.group({
+            name: ['', Validators.required],
+            clientId: ['', Validators.required],
+            description: ['', Validators.required],
+            serverInfo: ['', Validators.required],
+            status: ['', Validators.required]
         });
     }
 }

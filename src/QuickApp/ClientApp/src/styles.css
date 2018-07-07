@@ -320,3 +320,7 @@ i.page-caption {
 .inline-block {
     display: inline-block;
 }
+
+.input-error {
+    background: #FF9494;
+}

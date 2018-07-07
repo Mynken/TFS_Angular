@@ -65,6 +65,8 @@ import { ProjectService } from './services/custom/project.service';
 import { ProjectEditComponent } from './components/view/projects/project-edit/project-edit.component';
 import { TransformClient } from './pipes/transfromClient.pipe';
 import { TransformStatus } from './pipes/transformStatus.pipe';
+import { FswTextareaComponent } from './components/controls/fsw-controls/fsw-textarea/fsw-textarea.component';
+import { FswDropdownComponent } from './components/controls/fsw-controls/fsw-dropdown/fsw-dropdown.component';
 
 @NgModule({
     imports: [
@@ -121,7 +123,9 @@ import { TransformStatus } from './pipes/transformStatus.pipe';
         InputRefDirective,
         ProjectsLayoutComponent,
         ProjectCreateComponent,
-        ProjectEditComponent
+        ProjectEditComponent,
+        FswTextareaComponent,
+        FswDropdownComponent
     ],
     providers: [
         { provide: 'BASE_URL', useFactory: getBaseUrl },

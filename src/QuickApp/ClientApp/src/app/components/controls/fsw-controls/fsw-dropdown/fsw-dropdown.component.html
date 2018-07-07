@@ -1,0 +1,19 @@
+<label class="col-sm-3 control-label">{{label}}</label>
+<div class="input-group col-lg-4">
+    <span class="input-group-addon">
+        <i class="fa fa-{{icon}}"></i>
+    </span>
+  
+    <p-dropdown 
+    [options]="options" 
+    [(ngModel)]="model" 
+    name={{name}}
+    placeholder="{{placeholder}}"
+    (ngModelChange)="errorMessage()"
+    [ngClass]="{'input-error': hasError}"
+    optionLabel="label"></p-dropdown>
+
+    <ng-container *ngIf='hasError'>
+            <span class="text-danger"> {{errorMessage()}}</span>
+    </ng-container>
+</div>
