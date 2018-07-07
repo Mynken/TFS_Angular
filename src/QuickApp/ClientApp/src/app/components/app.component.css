@@ -206,3 +206,11 @@ a.user-name.app-component {
     opacity: 0;
     transition: .5s ease-in-out all;
 }
+
+.button-input{
+    width: 200px;
+}
+
+.button-input .ui-button.ui-button-success.ui-state-default, .button-input input{
+    width: 100%;
+} 

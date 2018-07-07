@@ -1,11 +1,14 @@
 <div [@fadeInOut]>
     <p-panel header="Projects" >
+        <div class="button-input">
             <a routerLink="/project-create">
                 <fsw-button label="Add new project" severityLevel="success"></fsw-button>
             </a>
+            
             <div class="search-panel">
                     <input type="search" pInputText placeholder="Search..." (keyup)="dv.filterGlobal($event.target.value, 'contains')">
             </div>
+        </div>
     <p-table #dv [value]="projects" [paginator]="true" [rows]="10" [columns]="columnsForsearch" [style]="{'text-align':'center'}">
             <ng-template pTemplate="header">
                     <tr>
