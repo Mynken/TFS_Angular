@@ -1,8 +1,9 @@
 import { Location } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators, NgForm } from '@angular/forms';
+import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { SelectItem } from 'primeng/primeng';
 
 import { Client } from '../../../../models/client';
 import { Status } from '../../../../models/enums';
@@ -11,7 +12,6 @@ import { AlertService, MessageSeverity } from '../../../../services/alert.servic
 import { fadeInOut } from '../../../../services/animations';
 import { ClientService } from '../../../../services/custom/client.service';
 import { ProjectService } from './../../../../services/custom/project.service';
-import { SelectItem } from 'primeng/primeng';
 
 @Component({
   selector: 'project-edit',

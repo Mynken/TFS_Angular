@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild, NavigationExtras, CanLoad, Route } from '@angular/router';
 import { AuthService } from './auth.service';
+import { Permission } from '../models/permission.model';
 
 @Injectable()
 export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
@@ -16,15 +17,16 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     }
 
     canLoad(route: Route): boolean {
-
         const url = `/${route.path}`;
         return this.checkLogin(url);
     }
 
     checkLogin(url: string): boolean {
-
-        if (this.authService.isLoggedIn) {
+        console.log(this.authService.userPermissions);
+        if (this.authService.isLoggedIn && this.authService.userPermissions[0] !== null) {
             return true;
+        } else {
+            return false;
         }
 
         this.authService.loginRedirectUrl = url;

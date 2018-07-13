@@ -1,18 +1,17 @@
-import { Status } from './../../../../models/enums';
-
 import { Location } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators, NgForm } from '@angular/forms';
+import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { SelectItem } from 'primeng/primeng';
 
+import { Client } from '../../../../models/client';
 import { IProject, Project } from '../../../../models/project';
 import { AlertService, MessageSeverity } from '../../../../services/alert.service';
 import { fadeInOut } from '../../../../services/animations';
-import { ProjectService } from './../../../../services/custom/project.service';
 import { ClientService } from '../../../../services/custom/client.service';
-import { Client } from '../../../../models/client';
-import { SelectItem } from 'primeng/primeng';
+import { Status } from './../../../../models/enums';
+import { ProjectService } from './../../../../services/custom/project.service';
 
 @Component({
   selector: 'project-create',

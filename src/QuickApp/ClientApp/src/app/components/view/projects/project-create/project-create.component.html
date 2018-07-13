@@ -74,6 +74,8 @@
                 </p-panel>
             </form>
         </div>
+        
+<pre>{{project | json}}</pre>
     <div class="col-md-10">
         <div class="save-create-kontrahent-ie">
             <fsw-button label="{{'button.Save' | translate}}" (click)="projectForm.valid ? onSubmit() : ''" [disabled]="!projectForm.valid" severityLevel="success" class="enter" ></fsw-button>

@@ -13,6 +13,7 @@ import { ClientEditComponent } from './components/view/clients/client-edit/clien
 import { ProjectsLayoutComponent } from './components/view/projects/projects-layout/projects-layout.component';
 import { ProjectCreateComponent } from './components/view/projects/project-create/project-create.component';
 import { ProjectEditComponent } from './components/view/projects/project-edit/project-edit.component';
+import { ReportComponent } from './components/view/report/report.component';
 
  @NgModule({
     imports: [
@@ -20,6 +21,7 @@ import { ProjectEditComponent } from './components/view/projects/project-edit/pr
             { path: '', component: HomeComponent, canActivate: [AuthGuard], data: { title: 'Home' } },
             { path: 'login', component: LoginComponent, data: { title: 'Login' } },
             { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard], data: { title: 'Settings' } },
+            { path: 'report', component: ReportComponent, canActivate: [AuthGuard], data: { title: 'New report'} },
             { path: 'clients', component: ClientsLayoutComponent, canActivate: [AuthGuard], data: { title: 'Clients'} },
             { path: 'client-create', component: ClientCreateComponent, canActivate: [AuthGuard], data: { title: 'Clients create'}  },
             { path: 'client-edit/:id', component: ClientEditComponent, canActivate: [AuthGuard], data: { title: 'Clients edit'}  },

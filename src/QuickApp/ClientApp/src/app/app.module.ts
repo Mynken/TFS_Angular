@@ -67,6 +67,7 @@ import { TransformClient } from './pipes/transfromClient.pipe';
 import { TransformStatus } from './pipes/transformStatus.pipe';
 import { FswTextareaComponent } from './components/controls/fsw-controls/fsw-textarea/fsw-textarea.component';
 import { FswDropdownComponent } from './components/controls/fsw-controls/fsw-dropdown/fsw-dropdown.component';
+import { ReportComponent } from './components/view/report/report.component';
 
 @NgModule({
     imports: [
@@ -125,7 +126,8 @@ import { FswDropdownComponent } from './components/controls/fsw-controls/fsw-dro
         ProjectCreateComponent,
         ProjectEditComponent,
         FswTextareaComponent,
-        FswDropdownComponent
+        FswDropdownComponent,
+        ReportComponent
     ],
     providers: [
         { provide: 'BASE_URL', useFactory: getBaseUrl },

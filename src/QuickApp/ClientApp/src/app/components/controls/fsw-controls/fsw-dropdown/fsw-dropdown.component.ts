@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input, Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, forwardRef, Input, Output } from '@angular/core';
 import { ControlContainer, NgForm } from '@angular/forms';
 import { SelectItem } from 'primeng/primeng';
 
@@ -47,5 +47,5 @@ export class FswDropdownComponent {
         }
     }
     return message;
-    }
+  }
 }
