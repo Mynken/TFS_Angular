@@ -221,10 +221,12 @@ a.user-name.app-component {
     margin: 0em 0.5em;
 }
 
-.row fsw-textarea{
-
+.ui-textarea-style{
+    position: relative;
+    display: block;
 }
 
 .table>tbody>tr>td{
     padding: 18px 8px;
 }
+

@@ -9,7 +9,7 @@
           [rows]="rows"
           [cols]="cols"      
           [maxlength]="maxlength"
-          [ngClass]="{'input-error': hasError}"
+          [ngClass]="{'ui-textarea-style input-error': hasError}"
           [(ngModel)]="model"
           (ngModelChange)="errorMessage()"
           placeholder={{placeholder}}
