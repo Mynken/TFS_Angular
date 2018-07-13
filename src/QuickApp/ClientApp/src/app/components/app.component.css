@@ -214,3 +214,22 @@ a.user-name.app-component {
 .button-input .ui-button.ui-button-success.ui-state-default, .button-input input{
     width: 100%;
 } 
+
+.input-group .text-danger{
+    position: absolute;
+    display: inherit;
+    margin: 0em 0.5em;
+}
+
+.ui-textarea-style{
+    position: relative;
+    display: block;
+}
+
+.table>tbody>tr>td{
+    padding: 18px 8px;
+}
+
+.ui-table{
+    margin-top: 10px;
+}
