@@ -1,17 +1,17 @@
 import { Location } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, Data } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SelectItem } from 'primeng/primeng';
 
-import { Client } from '../../../../models/client';
-import { IProject, Project } from '../../../../models/project';
+import { IProject, Project } from '../../../../models/viewModels/projectVm';
 import { AlertService, MessageSeverity } from '../../../../services/alert.service';
 import { fadeInOut } from '../../../../services/animations';
 import { ClientService } from '../../../../services/custom/client.service';
 import { Status } from './../../../../models/enums';
 import { ProjectService } from './../../../../services/custom/project.service';
+import { Client } from '../../../../models/client';
 
 @Component({
   selector: 'project-create',
@@ -24,9 +24,9 @@ export class ProjectCreateComponent implements OnInit {
     @ViewChild('projectForm')
     public projectForm: NgForm;
     public project: IProject = new Project();
+    public statuses: SelectItem[] = [];
+    public clients: SelectItem[] = [];
     public allclients: Client[] = [];
-    public statuses: { name: string, value: number }[] = [];
-    cars: SelectItem[];
 
     constructor(private alertService: AlertService,
         private router: Router,
@@ -38,24 +38,9 @@ export class ProjectCreateComponent implements OnInit {
 
     ngOnInit(): void {
         this.createForm();
-        this.clientService.getClientsList()
-            .subscribe( data => { this.allclients = data; } );
-        this.statuses.push( {name: 'New', value: Status.New},
-                            {name: 'InWork', value: Status.InWork},
-                            {name: 'Finished', value: Status.Finished});
-
-                            this.cars = [
-                                {label: 'Audi', value: 1},
-                                {label: 'BMW', value: 2},
-                                {label: 'Fiat', value: 3},
-                                {label: 'Ford', value: 4},
-                                {label: 'Honda', value: 5},
-                                {label: 'Jaguar', value: 6},
-                                {label: 'Mercedes', value: 7},
-                                {label: 'Renault', value: 8},
-                                {label: 'VW', value: 9},
-                                {label: 'Volvo', value: 10}
-                            ];
+        this.statuses.push( {label: 'New', value: Status.New},
+                            {label: 'InWork', value: Status.InWork},
+                            {label: 'Finished', value: Status.Finished});
     }
 
     back(): void {
@@ -90,5 +75,14 @@ export class ProjectCreateComponent implements OnInit {
             serverInfo: ['', Validators.required],
             status: ['', Validators.required]
         });
+
+        this.clientService.getClientsList()
+            .subscribe(data => {
+            this.allclients = data;
+                this.allclients.forEach(element => { console.log(this.allclients);
+                    this.clients.push({ label: element.company, value: element.id });
+                });
+            }
+            );
     }
 }

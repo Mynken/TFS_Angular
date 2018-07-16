@@ -1,3 +1,58 @@
-<p>
-  report works!
-</p>
+<ngx-spinner bdColor="rgba(159,202,249,0.8)" size="large" color="#2341f0" type="ball-clip-rotate-multiple"></ngx-spinner>
+<h1>New report</h1>
+<p-panel>
+        <div [@fadeInOut] class="container" >
+            <form (ngSubmit)="onSubmit()" #reportForm="ngForm">
+                <p-panel header="Report information" >
+                    <table class="table table-striped table-hover table-responsive">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="row">
+                                        <fsw-input-text
+                                        [(ngModel)]="report.shortDescription" ngDefaultControl
+                                        name="shortDescription"
+                                        [hasError]="reportForm?.form.controls.shortDescription.invalid"
+                                        [validations]="reportForm?.form.controls.shortDescription.errors"
+                                        label="Short description"
+                                        icon="bullseye"></fsw-input-text>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="row">
+                                        <fsw-dropdown 
+                                        [(ngModel)]="report.priority" ngDefaultControl
+                                        [options]="priorities"
+                                        name="priority"
+                                        [hasError]="reportForm?.form.controls.priority.invalid"
+                                        [validations]="reportForm?.form.controls.priority.errors"
+                                        label="Priority"></fsw-dropdown>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="row">
+                                        <fsw-textarea 
+                                        [(ngModel)]="report.fullDescription" ngDefaultControl
+                                        name="fullDescription"
+                                        [hasError]="reportForm?.form.controls.fullDescription.invalid"
+                                        [validations]="reportForm?.form.controls.fullDescription.errors"
+                                        label="Full description"></fsw-textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </p-panel>
+            </form>
+        </div>
+    <div class="col-md-10">
+        <fsw-button label="{{'button.Save' | translate}}" (click)="reportForm.valid ? onSubmit() : ''" [disabled]="!reportForm.valid" severityLevel="success" class="enter" ></fsw-button>
+        <a routerLink="/home">
+            <fsw-button label="{{'button.Back' | translate}}"></fsw-button>
+        </a>
+    </div>
+</p-panel>

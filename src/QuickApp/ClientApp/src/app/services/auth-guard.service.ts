@@ -22,11 +22,11 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     }
 
     checkLogin(url: string): boolean {
-        console.log(this.authService.userPermissions);
+        console.log(url);
         if (this.authService.isLoggedIn && this.authService.userPermissions[0] !== null) {
             return true;
-        } else {
-            return false;
+        } else if (url === '/' || url === '/report') {
+            return true;
         }
 
         this.authService.loginRedirectUrl = url;

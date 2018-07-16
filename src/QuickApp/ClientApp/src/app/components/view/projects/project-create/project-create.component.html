@@ -47,8 +47,8 @@
                                 <td>
                                     <div class="row">
                                         <fsw-dropdown 
-                                        [(ngModel)]="project.clientId" ngDefaultControl
-                                        [options]="cars"
+                                        [(model)]="project.clientId" ngDefaultControl
+                                        [options]="clients"
                                         name="clientId"
                                         [hasError]="projectForm?.form.controls.clientId.invalid"
                                         [validations]="projectForm?.form.controls.clientId.errors"
@@ -60,12 +60,12 @@
                                 <td>
                                     <div class="row">
                                         <fsw-dropdown 
-                                        [(ngModel)]="project.status" ngDefaultControl
-                                        [options]="cars"
+                                        [(model)]="project.status" ngDefaultControl
+                                        [options]="statuses"
                                         name="status"
                                         [hasError]="projectForm?.form.controls.status.invalid"
                                         [validations]="projectForm?.form.controls.status.errors"
-                                        label="Client Id"></fsw-dropdown>
+                                        label="Status"></fsw-dropdown>
                                     </div>
                                 </td>
                             </tr>
@@ -74,8 +74,6 @@
                 </p-panel>
             </form>
         </div>
-        
-<pre>{{project | json}}</pre>
     <div class="col-md-10">
         <div class="save-create-kontrahent-ie">
             <fsw-button label="{{'button.Save' | translate}}" (click)="projectForm.valid ? onSubmit() : ''" [disabled]="!projectForm.valid" severityLevel="success" class="enter" ></fsw-button>

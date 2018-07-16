@@ -1,17 +1,19 @@
+import { SelectItem } from '../../../../node_modules/primeng/primeng';
+
 export interface IProject {
     id: number;
     name: string;
-    clientId: number;
     description: string;
     serverInfo: string;
-    status: number;
+    clientId: SelectItem;
+    status: SelectItem;
 }
 
 export class Project implements IProject {
     id: number;
     name: string;
-    clientId: number;
     description: string;
     serverInfo: string;
-    status: number;
+    clientId: SelectItem;
+    status: SelectItem;
 }

@@ -47,7 +47,7 @@
                                 <td>
                                     <div class="row">
                                         <fsw-dropdown 
-                                        [(ngModel)]="project.clientId" ngDefaultControl
+                                        [(model)]="project.clientId" ngDefaultControl
                                         [options]="cars"
                                         name="clientId"
                                         [hasError]="projectForm?.form.controls.clientId.invalid"
@@ -60,12 +60,12 @@
                                 <td>
                                     <div class="row">
                                         <fsw-dropdown 
-                                        [(ngModel)]="project.status" ngDefaultControl
+                                        [(model)]="project.status" ngDefaultControl
                                         [options]="cars"
                                         name="status"
                                         [hasError]="projectForm?.form.controls.status.invalid"
                                         [validations]="projectForm?.form.controls.status.errors"
-                                        label="Client Id"></fsw-dropdown>
+                                        label="Status"></fsw-dropdown>
                                     </div>
                                 </td>
                             </tr>

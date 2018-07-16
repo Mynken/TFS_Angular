@@ -5,9 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SelectItem } from 'primeng/primeng';
 
-import { Client } from '../../../../models/client';
 import { Status } from '../../../../models/enums';
-import { IProject, Project } from '../../../../models/project';
+import { IProject, Project } from '../../../../models/viewModels/projectVm';
 import { AlertService, MessageSeverity } from '../../../../services/alert.service';
 import { fadeInOut } from '../../../../services/animations';
 import { ClientService } from '../../../../services/custom/client.service';
@@ -26,9 +25,8 @@ export class ProjectEditComponent implements OnInit {
     public projectForm: NgForm;
     public projectId: number;
     public project: IProject = new Project();
-    public allclients: Client[] = [];
-    public statuses: { name: string, value: number }[] = [];
-    cars: SelectItem[];
+    public statuses: SelectItem[] = [];
+    public clients: SelectItem[];
 
     constructor(private alertService: AlertService,
         private router: Router,
@@ -44,26 +42,16 @@ export class ProjectEditComponent implements OnInit {
         this.route.params.subscribe(params => {
             this.projectId = + params['id'];
          });
-         this.projectService.getProjectById(this.projectId).subscribe(
-             data => { this.project = data; });
+         this.statuses.push( {label: 'New', value: Status.New},
+                            {label: 'InWork', value: Status.InWork},
+                            {label: 'Finished', value: Status.Finished});
         this.clientService.getClientsList()
-             .subscribe( data => { this.allclients = data; } );
-        this.statuses.push( {name: 'New', value: Status.New},
-                             {name: 'InWork', value: Status.InWork},
-                             {name: 'Finished', value: Status.Finished});
-
-                             this.cars = [
-                                {label: 'Audi', value: 1},
-                                {label: 'BMW', value: 2},
-                                {label: 'Fiat', value: 3},
-                                {label: 'Ford', value: 4},
-                                {label: 'Honda', value: 5},
-                                {label: 'Jaguar', value: 6},
-                                {label: 'Mercedes', value: 7},
-                                {label: 'Renault', value: 8},
-                                {label: 'VW', value: 9},
-                                {label: 'Volvo', value: 10}
-                            ];
+            .subscribe( data => {
+                data.forEach(el => {
+                    this.clients.push({label: el.company, value: el.id});
+                });
+            }
+        );
     }
 
     back(): void {

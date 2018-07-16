@@ -25,17 +25,17 @@ export class FswDropdownComponent {
   @Input() options: SelectItem[];
 
   @Input()
-  get model(): any {
+  get model(): SelectItem {
     return this.modelValue;
   }
-  set model(val: any) {
+  set model(val: SelectItem) {
     this.modelValue = val;
     this.modelChange.emit(val);
   }
 
   @Output()
-  modelChange: EventEmitter<any> = new EventEmitter<any>();
-  protected modelValue: any;
+  modelChange: EventEmitter<SelectItem> = new EventEmitter<SelectItem>();
+  protected modelValue: SelectItem;
 
   errorMessage(): any {
     let message = '';
