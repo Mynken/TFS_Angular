@@ -7,9 +7,9 @@ import { SelectItem } from 'primeng/primeng';
 
 import { AlertService, MessageSeverity } from '../../../services/alert.service';
 import { fadeInOut } from '../../../services/animations';
-import { IReport, Report } from '../../../models/report';
+import { IReport, Report } from '../../../models/viewModels/reportVm';
 import { ReportService } from '../../../services/custom/report.service';
-import { BugStatus } from '../../../models/enums';
+import { BugStatus, Priority } from '../../../models/enums';
 import { AuthService } from '../../../services/auth.service';
 
 @Component({
@@ -36,12 +36,12 @@ export class ReportComponent implements OnInit {
       private fb: FormBuilder) { }
 
   ngOnInit(): void {
-      this.createForm();
-      this.priorities = [ {label: 'Critical', value: 1},
-                          {label: 'High', value: 2},
-                          {label: 'Medium', value: 3},
-                          {label: 'Low', value: 4}];
-        this.userId = this.authService.currentUser.id;
+    this.createForm();
+    this.priorities = [ {label: 'Critical', value: Priority.Critical},
+                          {label: 'High', value: Priority.High},
+                          {label: 'Medium', value: Priority.Medium},
+                          {label: 'Low', value: Priority.Low}];
+    this.userId = this.authService.currentUser.id;
   }
 
   back(): void {
@@ -50,6 +50,7 @@ export class ReportComponent implements OnInit {
 
   onSubmit(): void {
     if (this.reportForm.valid) {
+        console.log(this.report);
         this.spinner.show();
         this.report.status = BugStatus.New;
         this.report.clientId = this.userId;

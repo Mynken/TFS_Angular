@@ -8,6 +8,8 @@ using DAL;
 using Microsoft.Extensions.Logging;
 using FSW_TFS.DAL.Models.TFS;
 using System.Net;
+using FSW_TFS.Web.ViewModels.Custom;
+using AutoMapper;
 
 namespace FSW_TFS.Web.Controllers
 {
@@ -57,11 +59,14 @@ namespace FSW_TFS.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add([FromBody]Report report)
+        public IActionResult Add([FromBody]ReportVm report)
         {
             try
             {
-                _unitOfWork.Reports.Add(report);
+                var test = Mapper.Map<Report>(report);
+                var test1 = Mapper.Map<ReportVm>(report);
+                var test2 = Mapper.Map<Report>(report);
+                _unitOfWork.Reports.Add(test);
                 return Ok();
             }
             catch (Exception ex)

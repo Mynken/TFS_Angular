@@ -1,7 +1,9 @@
+import { SelectItem } from '../../../../node_modules/primeng/primeng';
+
 export interface IReport {
     id: number;
     shortDescription: string;
-    priority: number;
+    priority: SelectItem;
     fullDescription: Date;
     clientId: string;
     status: number;
@@ -10,7 +12,7 @@ export interface IReport {
 export class Report implements IReport {
     id: number;
     shortDescription: string;
-    priority: number;
+    priority: SelectItem;
     fullDescription: Date;
     clientId: string;
     status: number;

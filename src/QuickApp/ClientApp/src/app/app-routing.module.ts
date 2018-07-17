@@ -18,7 +18,7 @@ import { ReportComponent } from './components/view/report/report.component';
  @NgModule({
     imports: [
         RouterModule.forRoot([
-            { path: '', component: HomeComponent, canActivate: [AuthGuard], data: { title: 'Home' } },
+            { path: '', component: HomeComponent, data: { title: 'Home' } },
             { path: 'login', component: LoginComponent, data: { title: 'Login' } },
             { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard], data: { title: 'Settings' } },
             { path: 'report', component: ReportComponent, canActivate: [AuthGuard], data: { title: 'New report'} },

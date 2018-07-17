@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, Injector } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { Report } from '../../models/report';
+import { Report } from '../../models/viewModels/reportVm';
 import { ConfigurationService } from '../configuration.service';
 import { EndpointFactory } from '../endpoint-factory.service';
 

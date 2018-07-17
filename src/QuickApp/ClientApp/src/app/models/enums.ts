@@ -24,3 +24,10 @@ export enum BugStatus {
     New = 3002,
     Resolved = 3003
 }
+
+export enum Priority {
+    Critical = 4000,
+    High = 4001,
+    Medium = 4002,
+    Low = 4003
+}

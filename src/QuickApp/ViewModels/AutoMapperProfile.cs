@@ -1,6 +1,9 @@
 ﻿using AutoMapper;
 using DAL.Core;
 using DAL.Models;
+using FSW_TFS.DAL.Models.TFS;
+using FSW_TFS.Web.ViewModels.Custom;
+using FSW_TFS.Web.ViewModels.Helpers;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -43,6 +46,15 @@ namespace CarWashApp.ViewModels
 
             CreateMap<IdentityRoleClaim<string>, PermissionViewModel>()
                 .ConvertUsing(s => Mapper.Map<PermissionViewModel>(ApplicationPermissions.GetPermissionByValue(s.ClaimValue)));
+
+            CreateMap<ReportVm, Report>()
+               .ForMember(r => r.Priority, map => map.MapFrom(s => s.Priority.Value))
+               .ReverseMap();
+
+            CreateMap<Report, ReportVm>()
+              .ForMember(d => d.Priority, map => map.MapFrom(x => x.Priority));
+            CreateMap<ReportVm, Report>()
+                .ForMember(d => d.Priority, map => map.MapFrom(x => x.Priority));
         }
     }
 }
