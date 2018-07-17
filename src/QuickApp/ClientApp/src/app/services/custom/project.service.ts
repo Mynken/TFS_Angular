@@ -1,6 +1,6 @@
 import { Injectable, Injector } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Project } from '../../models/project';
+import { Project } from '../../models/viewModels/projectVm';
 import { Observable } from 'rxjs/Observable';
 import { ConfigurationService } from '../configuration.service';
 import { EndpointFactory } from '../endpoint-factory.service';

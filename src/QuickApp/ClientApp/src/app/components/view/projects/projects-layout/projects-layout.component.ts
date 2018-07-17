@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { fadeInOut } from '../../../../services/animations';
 import { AlertService, DialogType, MessageSeverity } from '../../../../services/alert.service';
-import { Project } from '../../../../models/project';
+import { Project } from '../../../../models/viewModels/projectVm';
 import { Router } from '@angular/router';
 import { ProjectService } from '../../../../services/custom/project.service';
 

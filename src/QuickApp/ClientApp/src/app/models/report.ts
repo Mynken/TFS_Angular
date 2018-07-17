@@ -3,6 +3,8 @@ export interface IReport {
     shortDescription: string;
     priority: number;
     fullDescription: Date;
+    clientId: string;
+    status: number;
 }
 
 export class Report implements IReport {
@@ -10,4 +12,6 @@ export class Report implements IReport {
     shortDescription: string;
     priority: number;
     fullDescription: Date;
+    clientId: string;
+    status: number;
 }

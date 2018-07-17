@@ -18,3 +18,9 @@ export enum Validation {
     Custom = 2003
 }
 
+export enum BugStatus {
+    Active = 3000,
+    Closed = 3001,
+    New = 3002,
+    Resolved = 3003
+}

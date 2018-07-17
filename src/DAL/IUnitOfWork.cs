@@ -12,6 +12,7 @@ namespace DAL
     {
         IClientRepository Clients { get; }
         IProjectRepository Projects { get; }
+        IReportRepository Reports { get; }
 
         int SaveChanges();
     }

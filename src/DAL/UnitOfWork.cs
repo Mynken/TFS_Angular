@@ -16,6 +16,7 @@ namespace DAL
 
         IClientRepository _clients;
         IProjectRepository _projects;
+        IReportRepository _reports;
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -41,6 +42,17 @@ namespace DAL
                     _projects = new ProjectRepository(_context);
 
                 return _projects;
+            }
+        }
+
+        public IReportRepository Reports
+        {
+            get
+            {
+                if (_reports == null)
+                    _reports = new ReportRepository(_context);
+
+                return _reports;
             }
         }
         public int SaveChanges()
