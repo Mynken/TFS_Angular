@@ -1,9 +1,8 @@
-<div *ngIf="!canViewCustomers">
-    <div [@fadeInOut]> У вас нету активних "Элементов"</div>
-
-    <div [@fadeInOut]> У вас есть активные "баги"</div>
-    <a routerLink="/report">Перейти к ним</a>
-</div>
 <div *ngIf="canViewCustomers">
     dvdf
 </div>
+
+<div *ngIf="!canViewCustomers">
+  <user></user>
+</div>
+

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Status } from '../models/enums';
+import { Status, BugStatus } from '../models/enums';
 
 
 @Pipe({
@@ -11,7 +11,11 @@ export class TransformStatus implements PipeTransform {
     constructor() {
         this.statuses.push( {name: 'New', value: Status.New},
                             {name: 'InWork', value: Status.InWork},
-                            {name: 'Finished', value: Status.Finished});
+                            {name: 'Finished', value: Status.Finished},
+                            {name: 'Active', value: BugStatus.Active},
+                            {name: 'Closed', value: BugStatus.Closed},
+                            {name: 'New', value: BugStatus.New},
+                            {name: 'Resolved', value: BugStatus.Resolved});
     }
 
     transform(value: number): string {

@@ -1,0 +1,29 @@
+<div [@fadeInOut] *ngIf="reports.length === 0"> У вас нету активних "Элементов"
+  <a routerLink="/report">Добавить</a>
+</div>
+
+<div [@fadeInOut] *ngIf="reports.length > 0"> У вас есть активные "баги"
+  <p-panel header="Bugs">
+    <div class="button-input">
+
+    </div>
+    <p-table #dv [value]="reports" [paginator]="true" [rows]="10" [style]="{'text-align':'center'}">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Short description</th>
+          <th>Priority</th>
+          <th>Full Description</th>
+          <th>Status</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-report>
+        <tr>
+          <td>{{report.shortDescription}}</td>
+          <td>{{report.priority.label}}</td>
+          <td>{{report.fullDescription}}</td>
+          <td>{{report.status | transformStatus}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-panel>
+</div>

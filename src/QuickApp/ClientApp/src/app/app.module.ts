@@ -64,6 +64,7 @@ import { ProjectService } from './services/custom/project.service';
 import { ReportService } from './services/custom/report.service';
 import { EndpointFactory } from './services/endpoint-factory.service';
 import { LocalStoreManager } from './services/local-store-manager.service';
+import { UserComponent } from './components/view/home/user/user.component';
 
 @NgModule({
     imports: [
@@ -123,7 +124,8 @@ import { LocalStoreManager } from './services/local-store-manager.service';
         ProjectEditComponent,
         FswTextareaComponent,
         FswDropdownComponent,
-        ReportComponent
+        ReportComponent,
+        UserComponent
     ],
     providers: [
         { provide: 'BASE_URL', useFactory: getBaseUrl },

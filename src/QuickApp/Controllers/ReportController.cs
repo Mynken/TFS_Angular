@@ -31,7 +31,8 @@ namespace FSW_TFS.Web.Controllers
         public IActionResult Get()
         {
             var reports = _unitOfWork.Reports.GetAll();
-            return Ok(reports);
+            var reportsVm = Mapper.Map<List<ReportVm>>(reports);
+            return Ok(reportsVm);
         }
 
         [HttpGet("{id}")]
@@ -59,14 +60,12 @@ namespace FSW_TFS.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add([FromBody]ReportVm report)
+        public IActionResult Add([FromBody]ReportVm reportVm)
         {
             try
             {
-                var test = Mapper.Map<Report>(report);
-                var test1 = Mapper.Map<ReportVm>(report);
-                var test2 = Mapper.Map<Report>(report);
-                _unitOfWork.Reports.Add(test);
+                var report = Mapper.Map<Report>(reportVm);
+                _unitOfWork.Reports.Add(report);
                 return Ok();
             }
             catch (Exception ex)

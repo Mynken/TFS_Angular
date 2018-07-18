@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DAL.Core;
 using DAL.Models;
+using FSW_TFS.DAL.Core;
 using FSW_TFS.DAL.Models.TFS;
 using FSW_TFS.Web.ViewModels.Custom;
 using FSW_TFS.Web.ViewModels.Helpers;
@@ -17,6 +18,8 @@ namespace CarWashApp.ViewModels
     {
         public AutoMapperProfile()
         {
+            var dictionary = new Dictionary();
+
             CreateMap<ApplicationUser, UserViewModel>()
                    .ForMember(d => d.Roles, map => map.Ignore());
             CreateMap<UserViewModel, ApplicationUser>()
@@ -47,14 +50,14 @@ namespace CarWashApp.ViewModels
             CreateMap<IdentityRoleClaim<string>, PermissionViewModel>()
                 .ConvertUsing(s => Mapper.Map<PermissionViewModel>(ApplicationPermissions.GetPermissionByValue(s.ClaimValue)));
 
-            CreateMap<ReportVm, Report>()
-               .ForMember(r => r.Priority, map => map.MapFrom(s => s.Priority.Value))
-               .ReverseMap();
-
             CreateMap<Report, ReportVm>()
-              .ForMember(d => d.Priority, map => map.MapFrom(x => x.Priority));
+                 .ForPath(d => d.Priority.Value, map => map.MapFrom(s => s.Priority))
+                 .ForPath(d => d.Priority.Label, map => map.MapFrom(s => "test"));
+
+            //.ForPath(d => d.Priority.Label, map => map.MapFrom(s => dictionary.GetPriority()
+            //   .Where(x => x.Key == s.Priority)));
             CreateMap<ReportVm, Report>()
-                .ForMember(d => d.Priority, map => map.MapFrom(x => x.Priority));
+                .ForMember(d => d.Priority, map => map.MapFrom(x => x.Priority.Value));
         }
     }
 }
